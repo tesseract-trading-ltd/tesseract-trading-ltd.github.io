@@ -1,0 +1,61 @@
+# Tesseract Trading - GitHub Pages Configuration
+# High-Dimensional Execution
+
+# Site settings
+title: Tesseract Trading
+description: High-Dimensional Execution - Multi-dimensional trading strategies and optimal execution paths
+url: "https://tesseract-trading-ltd.github.io"
+baseurl: ""
+
+# Brand
+brand:
+  name: "Tesseract Trading"
+  tagline: "High-Dimensional Execution"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Exclude from build
+exclude:
+  - README.md
+  - LICENSE
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Include specific files
+include:
+  - _headers
+  - _redirects
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      lang: en
+
+# Compression
+sass:
+  style: compressed
+
+# SEO
+author: Tesseract Trading
+twitter:
+  card: summary
+social:
+  name: Tesseract Trading
+  links:
+    - https://github.com/tesseract-trading-ltd
+
+# Analytics (optional)
+# google_analytics: UA-XXXXXXXX-X

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesseract Trading - High-Dimensional Execution</title>
+    <meta name="description" content="Tesseract Trading: Precision execution across high-dimensional market spaces. Operating beyond conventional trading boundaries.">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Tesseract Trading">
+    <meta property="og:description" content="High-Dimensional Execution - Precision trading across market dimensions">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:url" content="https://tesseract-trading-ltd.github.io">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tesseract Trading">
+    <meta name="twitter:description" content="High-Dimensional Execution">
+    <meta name="twitter:image" content="images/logo.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0A0F2C">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tesseract-trading-ltd.github.io">
+</head>
+<body>
+    <!-- Geometric Background Canvas -->
+    <canvas id="geometricBg"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container nav-container">
+            <a href="#top" class="nav-logo">
+                <img src="images/logo.svg" alt="Tesseract Trading Logo" width="44" height="44">
+                <span class="nav-logo-text">Tesseract Trading</span>
+            </a>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" data-lang="en">ABOUT</a><a href="#about" data-lang="zh" style="display: none;">关于</a></li>
+                <li><a href="#dimensions" data-lang="en">DIMENSIONS</a><a href="#dimensions" data-lang="zh" style="display: none;">维度</a></li>
+                <li><a href="#execution" data-lang="en">EXECUTION</a><a href="#execution" data-lang="zh" style="display: none;">执行</a></li>
+                <li><a href="#contact" data-lang="en">CONTACT</a><a href="#contact" data-lang="zh" style="display: none;">联系</a></li>
+                <li>
+                    <button class="lang-toggle" id="langToggle">EN / 中文</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="top">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <img src="images/logo.svg" alt="Tesseract Trading" class="hero-logo">
+            </div>
+            <p class="hero-subtitle" data-lang="en">HIGH-DIMENSIONAL EXECUTION</p>
+            <p class="hero-subtitle" data-lang="zh" style="display: none;">高维度精准执行</p>
+            <h1 class="hero-title" data-lang="en">Trading Beyond<br>Three Dimensions</h1>
+            <h1 class="hero-title" data-lang="zh" style="display: none;">超越三维空间<br>的交易执行</h1>
+            <p class="hero-description" data-lang="en">
+                Like a tesseract projects 4D geometry into 3D space, we perceive and operate
+                in market dimensions invisible to conventional traders. Precision execution
+                through mathematical structure.
+            </p>
+            <p class="hero-description" data-lang="zh" style="display: none;">
+                如同超立方体将四维几何投影到三维空间，我们感知并运作于传统交易者无法察觉的市场维度。
+                通过数学结构实现精准执行。
+            </p>
+            <div class="hero-buttons">
+                <a href="#dimensions" class="btn btn-primary" data-lang="en">Enter Higher Dimensions</a>
+                <a href="#dimensions" class="btn btn-primary" data-lang="zh" style="display: none;">进入高维空间</a>
+                <a href="https://the-alephain-guild.github.io" class="btn btn-secondary" data-lang="en">The Alephain Guild</a>
+                <a href="https://the-alephain-guild.github.io" class="btn btn-secondary" data-lang="zh" style="display: none;">阿莱夫行会</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span data-lang="en">Unfold dimensions</span>
+            <span data-lang="zh" style="display: none;">展开维度</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title" data-lang="en">The Tesseract</h2>
+            <h2 class="section-title" data-lang="zh" style="display: none;">超立方体</h2>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead" data-lang="en">
+                        Tesseract Trading is the high-dimensional execution arm of The Alephain Guild,
+                        specializing in precision market operations across dimensions that conventional
+                        traders cannot perceive.
+                    </p>
+                    <p class="lead" data-lang="zh" style="display: none;">
+                        Tesseract Trading是阿莱夫行会的高维度执行部门，专注于在传统交易者无法感知的维度中进行精准市场操作。
+                    </p>
+                    <p data-lang="en">
+                        A tesseract is a four-dimensional hypercube — an object that exists beyond
+                        our three-dimensional perception. Just as a 3D cube casts a 2D shadow, a tesseract
+                        projects complex geometric patterns into lower dimensions. We operate in these
+                        higher market dimensions, executing with mathematical precision.
+                    </p>
+                    <p data-lang="zh" style="display: none;">
+                        超立方体是四维超立方体——一个存在于我们三维感知之外的物体。正如三维立方体投射出二维阴影，
+                        超立方体将复杂的几何图案投影到较低维度。我们在这些更高的市场维度中运作，以数学精度执行。
+                    </p>
+                </div>
+                <div class="about-visual">
+                    <div class="tesseract-visual">
+                        <div class="tesseract-inner"></div>
+                        <div class="tesseract-outer"></div>
+                    </div>
+                    <p class="visual-caption" data-lang="en">4D Hypercube Projection</p>
+                    <p class="visual-caption" data-lang="zh" style="display: none;">四维超立方体投影</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dimensions Section -->
+    <section class="section dimensions" id="dimensions">
+        <div class="container">
+            <h2 class="section-title" data-lang="en">Market Dimensions</h2>
+            <h2 class="section-title" data-lang="zh" style="display: none;">市场维度</h2>
+            <p class="section-subtitle" data-lang="en">Operating across multiple market structure layers</p>
+            <p class="section-subtitle" data-lang="zh" style="display: none;">跨越多重市场结构层运作</p>
+
+            <div class="dimensions-grid">
+                <div class="dimension-card" data-dimension="1">
+                    <div class="dimension-number">D¹</div>
+                    <h3 data-lang="en">Price Dimension</h3>
+                    <h3 data-lang="zh" style="display: none;">价格维度</h3>
+                    <p data-lang="en">
+                        The visible market surface — price movements, trends, and conventional
+                        technical patterns that all traders observe.
+                    </p>
+                    <p data-lang="zh" style="display: none;">
+                        可见的市场表面——所有交易者都能观察到的价格走势、趋势和传统技术形态。
+                    </p>
+                </div>
+
+                <div class="dimension-card" data-dimension="2">
+                    <div class="dimension-number">D²</div>
+                    <h3 data-lang="en">Volume Dimension</h3>
+                    <h3 data-lang="zh" style="display: none;">成交量维度</h3>
+                    <p data-lang="en">
+                        Market depth and liquidity structures — order flow dynamics, volume
+                        profiles, and participation patterns beneath the surface.
+                    </p>
+                    <p data-lang="zh" style="display: none;">
+                        市场深度和流动性结构——表面之下的订单流动态、成交量分布和参与模式。
+                    </p>
+                </div>
+
+                <div class="dimension-card" data-dimension="3">
+                    <div class="dimension-number">D³</div>
+                    <h3 data-lang="en">Time Dimension</h3>
+                    <h3 data-lang="zh" style="display: none;">时间维度</h3>
+                    <p data-lang="en">
+                        Multi-timeframe structural alignment — fractal patterns, regime
+                        transitions, and temporal market harmonics.
+                    </p>
+                    <p data-lang="zh" style="display: none;">
+                        多时间框架结构对齐——分形模式、状态转换和时间市场谐波。
+                    </p>
+                </div>
+
+                <div class="dimension-card" data-dimension="4">
+                    <div class="dimension-number">D⁴</div>
+                    <h3 data-lang="en">Correlation Dimension</h3>
+                    <h3 data-lang="zh" style="display: none;">相关性维度</h3>
+                    <p data-lang="en">
+                        Cross-asset interconnections — hidden correlations, regime-dependent
+                        relationships, and systemic risk structures.
+                    </p>
+                    <p data-lang="zh" style="display: none;">
+                        跨资产互联——隐藏的相关性、状态依赖关系和系统性风险结构。
+                    </p>
+                </div>
+
+                <div class="dimension-card highlight" data-dimension="n">
+                    <div class="dimension-number">Dⁿ</div>
+                    <h3 data-lang="en">Higher Dimensions</h3>
+                    <h3 data-lang="zh" style="display: none;">更高维度</h3>
+                    <p data-lang="en">
+                        The unseen market hyperspace — where geometric structures govern price
+                        behavior in ways invisible to lower-dimensional observers.
+                    </p>
+                    <p data-lang="zh" style="display: none;">
+                        不可见的市场超空间——几何结构以低维观察者无法察觉的方式支配价格行为。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Execution Section -->
+    <section class="section execution" id="execution">
+        <div class="container">
+            <h2 class="section-title" data-lang="en">Precision Execution</h2>
+            <h2 class="section-title" data-lang="zh" style="display: none;">精准执行</h2>
+            <p class="section-subtitle" data-lang="en">Mathematical structure meets operational excellence</p>
+            <p class="section-subtitle" data-lang="zh" style="display: none;">数学结构与卓越运营的结合</p>
+
+            <div class="execution-grid">
+                <div class="execution-card">
+                    <div class="execution-icon">◇</div>
+                    <h3 data-lang="en">Geometric Precision</h3>
+                    <h3 data-lang="zh" style="display: none;">几何精度</h3>
+                    <p data-lang="en">
+                        Entry and exit points calculated through multi-dimensional market
+                        geometry, not simple price levels.
+                    </p>
+                    <p data-lang="zh" style="display: none;">
+                        通过多维市场几何计算入场和出场点，而非简单的价格水平。
+                    </p>
+                </div>
+
+                <div class="execution-card">
+                    <div class="execution-icon">⬡</div>
+                    <h3 data-lang="en">Structural Arbitrage</h3>
+                    <h3 data-lang="zh" style="display: none;">结构套利</h3>
+                    <p data-lang="en">
+                        Exploiting geometric inconsistencies across market dimensions
+                        that resolve through time.
+                    </p>
+                    <p data-lang="zh" style="display: none;">
+                        利用跨市场维度的几何不一致性，这些不一致性会随时间解决。
+                    </p>
+                </div>
+
+                <div class="execution-card">
+                    <div class="execution-icon">⎔</div>
+                    <h3 data-lang="en">Hypercube Navigation</h3>
+                    <h3 data-lang="zh" style="display: none;">超立方体导航</h3>
+                    <p data-lang="en">
+                        Dynamic position management through rotating market projections
+                        and dimensional transitions.
+                    </p>
+                    <p data-lang="zh" style="display: none;">
+                        通过旋转市场投影和维度转换进行动态仓位管理。
+                    </p>
+                </div>
+
+                <div class="execution-card">
+                    <div class="execution-icon">◈</div>
+                    <h3 data-lang="en">Dimensional Hedging</h3>
+                    <h3 data-lang="zh" style="display: none;">维度对冲</h3>
+                    <p data-lang="en">
+                        Risk neutralization across market dimensions, not just
+                        conventional directional exposure.
+                    </p>
+                    <p data-lang="zh" style="display: none;">
+                        跨市场维度的风险中和，而非仅仅是传统的方向性敞口。
+                    </p>
+                </div>
+            </div>
+
+            <div class="execution-quote">
+                <blockquote>
+                    <p data-lang="en">"In higher dimensions, what appears as market chaos reveals itself as geometric order."</p>
+                    <p data-lang="zh" style="display: none;">"在更高维度中，表面上的市场混沌展现为几何秩序。"</p>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Footer Section -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/logo.svg" alt="Tesseract Trading" class="footer-logo">
+                    <h3>Tesseract Trading</h3>
+                    <p data-lang="en">High-Dimensional Execution</p>
+                    <p data-lang="zh" style="display: none;">高维度精准执行</p>
+                    <p class="footer-tagline" data-lang="en">A division of The Alephain Guild</p>
+                    <p class="footer-tagline" data-lang="zh" style="display: none;">阿莱夫行会旗下</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4 data-lang="en">Navigation</h4>
+                    <h4 data-lang="zh" style="display: none;">导航</h4>
+                    <ul>
+                        <li><a href="#about" data-lang="en">About</a><a href="#about" data-lang="zh" style="display: none;">关于</a></li>
+                        <li><a href="#dimensions" data-lang="en">Dimensions</a><a href="#dimensions" data-lang="zh" style="display: none;">维度</a></li>
+                        <li><a href="#execution" data-lang="en">Execution</a><a href="#execution" data-lang="zh" style="display: none;">执行</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-guild">
+                    <h4 data-lang="en">The Alephain Guild</h4>
+                    <h4 data-lang="zh" style="display: none;">阿莱夫行会</h4>
+                    <ul>
+                        <li><a href="https://the-alephain-guild.github.io" data-lang="en">Main Site</a><a href="https://the-alephain-guild.github.io" data-lang="zh" style="display: none;">主站</a></li>
+                        <li><a href="https://alchymia-labs.github.io" data-lang="en">Alchymia Labs</a><a href="https://alchymia-labs.github.io" data-lang="zh" style="display: none;">Alchymia Labs</a></li>
+                        <li><a href="https://the-alephain-guild.github.io#ecosystem" data-lang="en">Ecosystem</a><a href="https://the-alephain-guild.github.io#ecosystem" data-lang="zh" style="display: none;">生态</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p data-lang="en">&copy; 2025 Tesseract Trading Ltd. All rights reserved.</p>
+                <p data-lang="zh" style="display: none;">&copy; 2025 Tesseract Trading Ltd. 保留所有权利。</p>
+                <p class="brand-adherence" data-lang="en">This website strictly adheres to The Alephain Guild Brand Guide</p>
+                <p class="brand-adherence" data-lang="zh" style="display: none;">本网站严格遵循阿莱夫行会品牌指南</p>
+            </div>
+
+            <a href="#top" class="back-to-top" data-lang="en">↑ BACK TO TOP</a>
+            <a href="#top" class="back-to-top" data-lang="zh" style="display: none;">↑ 返回顶部</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
