@@ -129,23 +129,23 @@ img,svg{display:block;max-width:100%}
   font-size:13px;letter-spacing:-.005em;color:var(--ink-2);
 }
 .nav-list a{position:relative;padding:6px 0;transition:color .15s}
-.nav-list a:hover{color:var(--ink)}
+@media (hover: hover){ .nav-list a:hover{color:var(--ink)} }
 .nav-list a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .25s}
-.nav-list a:hover::after{transform:scaleX(1)}
+@media (hover: hover){ .nav-list a:hover::after{transform:scaleX(1)} }
 .nav-actions{display:flex;align-items:center;gap:18px}
 .lang{
   background:none;border:1px solid var(--rule);cursor:pointer;
   font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
   color:var(--ink-mute);padding:7px 11px;text-transform:uppercase;transition:all .15s;
 }
-.lang:hover{border-color:var(--ink);color:var(--ink)}
+@media (hover: hover){ .lang:hover{border-color:var(--ink);color:var(--ink)} }
 .lang .on{color:var(--ink);font-weight:600}
 .cta-mast{
   font-size:12px;letter-spacing:0;color:var(--paper);background:var(--ink);
   padding:9px 14px;display:inline-flex;align-items:center;gap:8px;
   border:1px solid var(--ink);transition:all .2s;
 }
-.cta-mast:hover{background:transparent;color:var(--ink)}
+@media (hover: hover){ .cta-mast:hover{background:transparent;color:var(--ink)} }
 .cta-mast .arr{font-family:'Newsreader',serif;font-style:italic;transform:translateY(-1px)}
 
 .burger{display:none;background:none;border:1px solid var(--rule);width:38px;height:38px;cursor:pointer;position:relative}
@@ -256,9 +256,9 @@ img,svg{display:block;max-width:100%}
   border:1px solid var(--ink);transition:all .2s;
 }
 .btn-fill{background:var(--ink);color:var(--paper)}
-.btn-fill:hover{background:transparent;color:var(--ink)}
+@media (hover: hover){ .btn-fill:hover{background:transparent;color:var(--ink)} }
 .btn-line{background:transparent;color:var(--ink);border-color:var(--rule)}
-.btn-line:hover{border-color:var(--ink)}
+@media (hover: hover){ .btn-line:hover{border-color:var(--ink)} }
 .btn .arr{font-family:'Newsreader',serif;font-style:italic;font-size:18px;line-height:.8;transform:translateY(1px)}
 
 /* ---------- hero instrument panel ---------- */
@@ -438,7 +438,7 @@ img,svg{display:block;max-width:100%}
   transition:background .2s;
 }
 .dim-row:last-child{border-bottom:none}
-.dim-row:hover{background:rgba(11,13,18,.025)}
+@media (hover: hover){ .dim-row:hover{background:rgba(11,13,18,.025)} }
 .dim-row.dim-n{background:linear-gradient(90deg,transparent 0,rgba(184,144,44,.06) 50%,transparent 100%)}
 .dim-row.dim-n .dim-axis{color:var(--gold)}
 .dim-row.dim-n .dim-axis::after{background:var(--gold)}
@@ -585,7 +585,7 @@ img,svg{display:block;max-width:100%}
   color:var(--gold-soft);border-bottom:1px solid rgba(184,144,44,.4);
   padding-bottom:2px;transition:border-color .2s;
 }
-.foot-cta a.mail:hover{border-bottom-color:var(--gold-soft)}
+@media (hover: hover){ .foot-cta a.mail:hover{border-bottom-color:var(--gold-soft)} }
 .foot-cta a.mail .at{color:var(--cream-mute);font-style:normal}
 
 .foot-grid{
@@ -608,7 +608,7 @@ img,svg{display:block;max-width:100%}
   font-size:14px;color:var(--cream-mute);transition:color .15s;
   display:flex;justify-content:space-between;gap:18px;
 }
-.foot ul a:hover{color:var(--cream)}
+@media (hover: hover){ .foot ul a:hover{color:var(--cream)} }
 .foot ul a .ext{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--cream-faint);letter-spacing:.04em}
 
 .foot-bot{
