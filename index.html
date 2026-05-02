@@ -1,339 +1,1363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tesseract Trading - High-Dimensional Execution</title>
-    <meta name="description" content="Tesseract Trading: Precision execution across high-dimensional market spaces. Operating beyond conventional trading boundaries.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tesseract Trading · High-Dimensional Execution</title>
+<meta name="description" content="Tesseract Trading — high-dimensional execution arm of The Alephain Guild.">
+<meta name="theme-color" content="#F4F1E8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#11141A" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://tesseract.alephain.com">
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Tesseract Trading">
-    <meta property="og:description" content="High-Dimensional Execution - Precision trading across market dimensions">
-    <meta property="og:image" content="images/logo.png">
-    <meta property="og:url" content="https://tesseract.alephain.com">
-    <meta property="og:type" content="website">
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tesseract Trading">
-    <meta name="twitter:description" content="High-Dimensional Execution">
-    <meta name="twitter:image" content="images/logo.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQ4FRY7LZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JRQ4FRY7LZ');
+</script>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+<style>
+/* =========================================================
+   TESSERACT TRADING · v2.0
+   Institutional folio · Swiss-precise · Monochrome
+   "Projectio per Geometriam"
+   ========================================================= */
 
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" sizes="48x48">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#0A0F2C">
+:root{
+  --paper:    #F4F1E8;
+  --paper-2:  #ECE7D7;
+  --paper-3:  #E2DCC8;
+  --ink:      #0B0D12;
+  --ink-2:    #1B1F27;
+  --ink-mute: #4F525B;
+  --ink-faint:#8B8C90;
+  --rule:     rgba(11,13,18,.16);
+  --rule-2:   rgba(11,13,18,.08);
+  --navy:     #1B2A3F;
+  --gold:     #9C7B25;
+  --gold-soft:#B8902C;
+  --slate:    #0F1419;
+  --cream:    #ECE7D7;
+  --cream-mute:rgba(236,231,215,.62);
+  --cream-faint:rgba(236,231,215,.30);
+}
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://tesseract.alephain.com">
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter Tight','Inter',system-ui,sans-serif;
+  font-weight:400;
+  font-size:15px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  font-feature-settings:"ss01","cv11","kern";
+  overflow-x:hidden;
+  letter-spacing:-.005em;
+}
+
+.serif{font-family:'Newsreader',Georgia,serif;font-feature-settings:"liga","onum"}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.tnum{font-variant-numeric:tabular-nums}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:1.5px solid var(--ink);outline-offset:4px}
+::selection{background:var(--ink);color:var(--paper)}
+img,svg{display:block;max-width:100%}
+
+/* ---------- shell ---------- */
+.shell{max-width:1440px;margin:0 auto;padding:0 48px;position:relative}
+@media(max-width:760px){.shell{padding:0 22px}}
+
+/* ---------- mast ---------- */
+.mast{
+  position:sticky;top:0;z-index:40;
+  background:rgba(244,241,232,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.mast-inner{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;
+  height:64px;gap:32px;
+}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-mark{
+  width:28px;height:28px;display:grid;place-items:center;color:var(--ink);
+}
+.brand-mark svg{width:100%;height:100%}
+.brand-name{
+  font-family:'Newsreader',serif;font-weight:400;font-style:italic;
+  font-size:19px;letter-spacing:-.01em;line-height:1;
+}
+.brand-tag{
+  font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);margin-top:3px;display:block;
+  font-style:normal;
+}
+.nav-list{
+  display:flex;gap:30px;justify-self:center;
+  font-size:13px;letter-spacing:-.005em;color:var(--ink-2);
+}
+.nav-list a{position:relative;padding:6px 0;transition:color .15s}
+.nav-list a:hover{color:var(--ink)}
+.nav-list a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav-list a:hover::after{transform:scaleX(1)}
+.nav-actions{display:flex;align-items:center;gap:18px}
+.lang{
+  background:none;border:1px solid var(--rule);cursor:pointer;
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+  color:var(--ink-mute);padding:7px 11px;text-transform:uppercase;transition:all .15s;
+}
+.lang:hover{border-color:var(--ink);color:var(--ink)}
+.lang .on{color:var(--ink);font-weight:600}
+.cta-mast{
+  font-size:12px;letter-spacing:0;color:var(--paper);background:var(--ink);
+  padding:9px 14px;display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--ink);transition:all .2s;
+}
+.cta-mast:hover{background:transparent;color:var(--ink)}
+.cta-mast .arr{font-family:'Newsreader',serif;font-style:italic;transform:translateY(-1px)}
+
+.burger{display:none;background:none;border:1px solid var(--rule);width:38px;height:38px;cursor:pointer;position:relative}
+.burger span{position:absolute;left:9px;right:9px;height:1.4px;background:var(--ink);transition:all .25s}
+.burger span:nth-child(1){top:13px}
+.burger span:nth-child(2){top:18.5px}
+.burger span:nth-child(3){top:24px}
+.burger[aria-expanded="true"] span:nth-child(1){top:18.5px;transform:rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){top:18.5px;transform:rotate(-45deg)}
+
+.sheet{
+  display:none;position:fixed;inset:64px 0 0;z-index:30;background:var(--paper);
+  padding:30px 22px;flex-direction:column;
+  transform:translateY(-110%);transition:transform .3s cubic-bezier(.2,.8,.2,1);
+}
+.sheet.open{transform:translateY(0)}
+.sheet a{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:22px 0;border-bottom:1px solid var(--rule);
+  font-family:'Newsreader',serif;font-style:italic;font-size:30px;
+  letter-spacing:-.015em;
+}
+.sheet a .num{font-family:'JetBrains Mono',monospace;font-style:normal;font-size:11px;letter-spacing:.18em;color:var(--ink-faint)}
+
+@media(max-width:1080px){
+  .nav-list{display:none}
+  .cta-mast{display:none}
+  .burger{display:inline-flex;align-items:center;justify-content:center}
+  .sheet{display:flex}
+}
+
+/* ---------- ticker bar ---------- */
+.ticker{
+  background:var(--ink);color:var(--cream);
+  font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--ink);
+}
+.ticker-inner{
+  display:flex;align-items:center;gap:42px;height:34px;
+  overflow:hidden;white-space:nowrap;
+}
+.ticker .pulse{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold-soft);box-shadow:0 0 0 3px rgba(184,144,44,.22);animation:p 2.4s ease-in-out infinite}
+@keyframes p{0%,100%{opacity:.55}50%{opacity:1}}
+.ticker .it{display:inline-flex;align-items:center;gap:10px;color:var(--cream-mute)}
+.ticker .it strong{color:var(--cream);font-weight:500}
+.ticker .it .up{color:#9FBE7B}
+.ticker .it .dn{color:#C97964}
+
+/* ---------- hero ---------- */
+.hero{
+  padding-top:80px;padding-bottom:96px;position:relative;
+  border-bottom:1px solid var(--ink);
+}
+.hero-grid{
+  display:grid;grid-template-columns:1fr 520px;gap:80px;align-items:start;
+}
+.eyebrow{
+  display:flex;align-items:center;gap:14px;margin-bottom:54px;
+  font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-mute);
+}
+.eyebrow::before{content:"";display:inline-block;width:48px;height:1px;background:var(--ink)}
+.eyebrow .gold{color:var(--gold);font-weight:500}
+
+.h1{
+  font-family:'Newsreader',serif;font-weight:300;
+  font-size:clamp(56px,9.4vw,148px);
+  line-height:.92;letter-spacing:-.038em;
+  margin-bottom:36px;
+}
+.h1 em{font-style:italic;font-weight:400}
+.h1 .pt{color:var(--ink-mute);font-style:normal}
+.h1 .underline{
+  position:relative;display:inline-block;
+}
+.h1 .underline::after{
+  content:"";position:absolute;left:0;right:0;bottom:.18em;height:.045em;background:var(--gold);
+  transform:scaleX(0);transform-origin:left;animation:rule 1.4s .5s cubic-bezier(.2,.8,.2,1) forwards;
+}
+@keyframes rule{to{transform:scaleX(1)}}
+
+.lede{
+  font-family:'Newsreader',serif;font-weight:400;font-size:21px;line-height:1.55;
+  max-width:60ch;color:var(--ink-2);text-wrap:pretty;
+  margin-bottom:44px;
+}
+.lede em{font-style:italic;color:var(--ink)}
+
+.hero-meta{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border-top:1px solid var(--ink);
+  margin-top:48px;
+}
+.hero-meta > div{
+  padding:18px 22px 18px 0;border-right:1px solid var(--rule);
+}
+.hero-meta > div:last-child{border-right:none;padding-right:0}
+.hero-meta .lab{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;font-weight:500}
+.hero-meta .val{font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:20px;line-height:1.1;letter-spacing:-.01em}
+.hero-meta .val small{display:block;font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10px;color:var(--ink-mute);letter-spacing:.06em;margin-top:4px}
+
+.cta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:52px}
+.btn{
+  font-size:13px;letter-spacing:0;font-weight:500;
+  display:inline-flex;align-items:center;gap:10px;padding:14px 22px;cursor:pointer;
+  border:1px solid var(--ink);transition:all .2s;
+}
+.btn-fill{background:var(--ink);color:var(--paper)}
+.btn-fill:hover{background:transparent;color:var(--ink)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--rule)}
+.btn-line:hover{border-color:var(--ink)}
+.btn .arr{font-family:'Newsreader',serif;font-style:italic;font-size:18px;line-height:.8;transform:translateY(1px)}
+
+/* ---------- hero instrument panel ---------- */
+.panel{
+  position:relative;background:var(--paper-2);border:1px solid var(--ink);
+  padding:0;
+}
+.panel-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 18px;border-bottom:1px solid var(--ink);
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-mute);
+}
+.panel-head strong{color:var(--ink);font-weight:500}
+.panel-head .live{display:inline-flex;align-items:center;gap:8px;color:var(--gold)}
+.panel-head .live::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold-soft);box-shadow:0 0 0 3px rgba(184,144,44,.18);animation:p 2.4s ease-in-out infinite}
+
+.gauges{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.gauge{
+  padding:22px 22px 24px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  position:relative;
+}
+.gauge:nth-child(2n){border-right:none}
+.gauge:nth-last-child(-n+2){border-bottom:none}
+.gauge .axis{
+  display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;
+}
+.gauge .axis .label{font-family:'Newsreader',serif;font-weight:400;font-size:18px;font-style:italic;letter-spacing:-.01em}
+.gauge .axis .id{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:var(--ink-faint);text-transform:uppercase}
+.gauge .read{
+  font-family:'Newsreader',serif;font-weight:300;font-size:32px;line-height:1;letter-spacing:-.025em;
+  display:flex;align-items:baseline;gap:8px;margin-bottom:10px;
+}
+.gauge .read .delta{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--gold);font-weight:500}
+.gauge .read .delta.neg{color:#9C4A38}
+.gauge .read .delta.pos{color:#3F6B45}
+.gauge .meta{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:14px}
+.gauge svg{height:48px;width:100%}
+
+.panel-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 18px;border-top:1px solid var(--ink);
+  font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+}
+.panel-foot .seal{font-family:'Newsreader',serif;font-style:italic;font-size:13px;text-transform:none;letter-spacing:0;color:var(--ink-2)}
+
+/* tesseract figure embedded */
+.figure{
+  background:var(--paper);border-top:1px solid var(--ink);
+  padding:28px 22px;display:flex;align-items:center;gap:24px;
+}
+.figure-svg{flex:0 0 130px;height:130px;color:var(--ink)}
+.figure-svg svg{width:100%;height:100%}
+.figure-cap{flex:1}
+.figure-cap .ttl{font-family:'Newsreader',serif;font-style:italic;font-size:18px;line-height:1.2;letter-spacing:-.01em;margin-bottom:6px}
+.figure-cap .desc{font-size:12.5px;line-height:1.55;color:var(--ink-mute);max-width:32ch}
+.figure-cap .cap{display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:6px}
+
+@keyframes hyperspin{
+  0%{transform:rotateZ(0)}100%{transform:rotateZ(360deg)}
+}
+.tess-rot{transform-origin:center;animation:hyperspin 60s linear infinite;transform-box:fill-box}
+
+@media(max-width:1080px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .panel{max-width:560px}
+}
+@media(max-width:560px){
+  .hero{padding-top:48px;padding-bottom:64px}
+  .hero-meta{grid-template-columns:1fr 1fr}
+  .hero-meta > div:nth-child(2n){border-right:none}
+  .hero-meta > div:nth-child(-n+2){border-bottom:1px solid var(--rule)}
+}
+
+/* ---------- section rhythm ---------- */
+.section{padding:120px 0;border-bottom:1px solid var(--ink);position:relative}
+.section.tinted{background:var(--paper-2)}
+.section.dark{background:var(--slate);color:var(--cream);border-bottom:none}
+
+.folio{
+  display:grid;grid-template-columns:120px 1fr 280px;gap:48px;align-items:end;
+  margin-bottom:80px;border-bottom:1px solid var(--rule);padding-bottom:32px;
+}
+.folio .folio-num{
+  font-family:'Newsreader',serif;font-weight:300;font-size:96px;line-height:.85;
+  letter-spacing:-.04em;font-feature-settings:"onum";
+}
+.folio .folio-num small{
+  display:block;font-family:'JetBrains Mono',monospace;font-size:10px;
+  letter-spacing:.18em;color:var(--ink-faint);text-transform:uppercase;
+  font-style:normal;margin-bottom:14px;font-weight:500;
+}
+.folio h2{
+  font-family:'Newsreader',serif;font-weight:300;
+  font-size:clamp(40px,5.4vw,72px);line-height:1;letter-spacing:-.028em;
+  max-width:18ch;
+}
+.folio h2 em{font-style:italic;font-weight:400}
+.folio .strap{
+  font-size:14px;line-height:1.55;color:var(--ink-mute);max-width:32ch;
+}
+.folio .strap.right{justify-self:end;text-align:right}
+
+.section.dark .folio{border-color:rgba(236,231,215,.22)}
+.section.dark .folio .folio-num small{color:var(--cream-faint)}
+.section.dark .folio .strap{color:var(--cream-mute)}
+
+@media(max-width:980px){
+  .folio{grid-template-columns:1fr;gap:18px;margin-bottom:48px}
+  .folio .folio-num{font-size:64px}
+  .folio .strap.right{justify-self:start;text-align:left}
+  .section{padding:72px 0}
+}
+
+/* ---------- doctrine (about) ---------- */
+.doctrine{
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;
+}
+.doctrine p{
+  font-family:'Newsreader',serif;font-weight:400;font-size:18px;line-height:1.65;
+  margin-bottom:22px;text-wrap:pretty;color:var(--ink-2);
+  max-width:46ch;
+}
+.doctrine p em{font-style:italic;color:var(--ink)}
+.doctrine .pull{
+  font-family:'Newsreader',serif;font-weight:300;font-style:italic;
+  font-size:30px;line-height:1.25;letter-spacing:-.018em;color:var(--ink);
+  border-left:2px solid var(--ink);padding-left:24px;margin-bottom:28px;
+  max-width:24ch;
+}
+.doctrine .marg{
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-left:2px solid var(--gold);padding-left:14px;margin:32px 0 24px;
+  display:inline-block;
+}
+
+.principles{
+  margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border:1px solid var(--ink);background:var(--paper);
+}
+.pr{
+  padding:36px 28px;border-right:1px solid var(--ink);position:relative;
+}
+.pr:last-child{border-right:none}
+.pr .seq{
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;
+  color:var(--ink-faint);text-transform:uppercase;margin-bottom:24px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.pr .seq .glyph{
+  font-family:'Newsreader',serif;font-style:italic;font-size:34px;
+  color:var(--ink);font-weight:300;letter-spacing:0;
+}
+.pr h4{
+  font-family:'Newsreader',serif;font-weight:400;font-style:italic;
+  font-size:24px;line-height:1.15;letter-spacing:-.012em;margin-bottom:12px;
+  text-wrap:balance;
+}
+.pr p{font-size:13.5px;line-height:1.6;color:var(--ink-mute);max-width:32ch}
+
+@media(max-width:980px){
+  .doctrine{grid-template-columns:1fr;gap:32px}
+  .principles{grid-template-columns:1fr}
+  .pr{border-right:none;border-bottom:1px solid var(--ink)}
+  .pr:last-child{border-bottom:none}
+}
+
+/* ---------- dimensions table ---------- */
+.dim-table{
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+}
+.dim-row{
+  display:grid;grid-template-columns:90px 220px 1fr 220px 120px;gap:36px;
+  padding:36px 0;border-bottom:1px solid var(--rule);align-items:center;
+  transition:background .2s;
+}
+.dim-row:last-child{border-bottom:none}
+.dim-row:hover{background:rgba(11,13,18,.025)}
+.dim-row.dim-n{background:linear-gradient(90deg,transparent 0,rgba(184,144,44,.06) 50%,transparent 100%)}
+.dim-row.dim-n .dim-axis{color:var(--gold)}
+.dim-row.dim-n .dim-axis::after{background:var(--gold)}
+
+.dim-axis{
+  font-family:'Newsreader',serif;font-weight:300;font-size:54px;line-height:.9;
+  letter-spacing:-.03em;font-feature-settings:"onum";position:relative;
+}
+.dim-axis sup{font-style:italic;font-weight:400;font-size:.45em;vertical-align:super;margin-left:.04em}
+
+.dim-name{
+  font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:26px;
+  line-height:1.1;letter-spacing:-.012em;
+}
+.dim-name small{
+  display:block;font-family:'JetBrains Mono',monospace;font-style:normal;font-size:9.5px;
+  letter-spacing:.16em;color:var(--ink-faint);text-transform:uppercase;margin-top:8px;font-weight:500;
+}
+
+.dim-text{
+  font-size:14.5px;line-height:1.6;color:var(--ink-2);max-width:46ch;text-wrap:pretty;
+}
+
+.dim-spec{
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-mute);
+  display:flex;flex-direction:column;gap:6px;letter-spacing:.04em;
+}
+.dim-spec .row{display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid var(--rule-2);padding-bottom:5px}
+.dim-spec .row:last-child{border-bottom:none;padding-bottom:0}
+.dim-spec .row .k{color:var(--ink-faint)}
+
+.dim-fig{display:flex;justify-content:center;color:var(--ink)}
+.dim-fig svg{width:88px;height:64px}
+
+@media(max-width:1100px){
+  .dim-row{grid-template-columns:80px 1fr 220px;gap:24px}
+  .dim-fig{display:none}
+  .dim-spec{display:none}
+}
+@media(max-width:760px){
+  .dim-row{grid-template-columns:1fr;gap:14px;padding:28px 0}
+  .dim-axis{font-size:42px}
+  .dim-name{font-size:22px}
+}
+
+/* ---------- execution cycle ---------- */
+.cycle-wrap{
+  border:1px solid rgba(236,231,215,.22);padding:56px 48px;
+  position:relative;
+}
+.cycle{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.phase{position:relative;padding:0 28px}
+.phase:not(:last-child)::after{
+  content:"";position:absolute;right:-1px;top:8px;width:1px;height:100%;background:rgba(236,231,215,.22);
+}
+.phase .seq{
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+  color:var(--cream-faint);text-transform:uppercase;margin-bottom:18px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.phase .seq .roman{
+  font-family:'Newsreader',serif;font-style:italic;font-size:36px;letter-spacing:0;
+  color:var(--gold-soft);font-weight:300;
+}
+.phase h3{
+  font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:28px;
+  line-height:1.05;letter-spacing:-.018em;margin-bottom:8px;color:var(--cream);
+}
+.phase .lat{
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--cream-faint);margin-bottom:18px;
+}
+.phase p{font-size:13.5px;line-height:1.6;color:var(--cream-mute);max-width:24ch;margin-bottom:20px}
+.phase ol{
+  list-style:none;border-top:1px solid rgba(236,231,215,.22);padding-top:14px;counter-reset:c;
+}
+.phase ol li{
+  counter-increment:c;font-family:'JetBrains Mono',monospace;font-size:10.5px;
+  color:var(--cream-mute);padding:5px 0 5px 26px;position:relative;letter-spacing:.02em;
+}
+.phase ol li::before{
+  content:"."counter(c,decimal-leading-zero);position:absolute;left:0;top:5px;
+  color:var(--cream-faint);font-weight:500;
+}
+
+@media(max-width:980px){
+  .cycle-wrap{padding:32px 22px}
+  .cycle{grid-template-columns:1fr 1fr;gap:32px 0}
+  .phase{padding:0 14px;border-bottom:1px solid rgba(236,231,215,.22);padding-bottom:24px}
+  .phase::after{display:none}
+}
+@media(max-width:560px){
+  .cycle{grid-template-columns:1fr}
+}
+
+/* ---------- ledger ---------- */
+.ledger{
+  margin-top:96px;border-top:1px solid rgba(236,231,215,.30);
+  border-bottom:1px solid rgba(236,231,215,.30);
+}
+.ledger-cap{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 0;border-bottom:1px solid rgba(236,231,215,.18);
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--cream-faint);
+}
+.ledger-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.ledger-cell{padding:34px 28px;border-right:1px solid rgba(236,231,215,.18);position:relative}
+.ledger-cell:last-child{border-right:none}
+.ledger-cell .lab{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-faint);margin-bottom:14px}
+.ledger-cell .val{
+  font-family:'Newsreader',serif;font-weight:300;font-size:64px;line-height:.9;
+  letter-spacing:-.03em;color:var(--cream);font-feature-settings:"onum";
+}
+.ledger-cell .val em{font-style:italic;font-weight:400;font-size:.4em;color:var(--cream-mute);margin-left:4px}
+.ledger-cell .unit{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--cream-mute);margin-top:12px;letter-spacing:.04em}
+
+@media(max-width:980px){
+  .ledger-grid{grid-template-columns:1fr 1fr}
+  .ledger-cell{border-bottom:1px solid rgba(236,231,215,.18)}
+  .ledger-cell:nth-child(2n){border-right:none}
+  .ledger-cell .val{font-size:48px}
+}
+
+/* ---------- contact / footer ---------- */
+.foot{
+  background:var(--slate);color:var(--cream);
+  padding:96px 0 32px;position:relative;
+}
+.foot-mast{
+  display:grid;grid-template-columns:1fr auto;align-items:end;gap:48px;
+  border-bottom:1px solid rgba(236,231,215,.18);padding-bottom:48px;margin-bottom:48px;
+}
+.foot-title{
+  font-family:'Newsreader',serif;font-weight:300;
+  font-size:clamp(40px,7.6vw,112px);line-height:.92;letter-spacing:-.034em;
+}
+.foot-title em{font-style:italic;font-weight:400}
+.foot-title .small{font-size:.36em;font-style:italic;color:var(--cream-mute);display:block;margin-top:18px;letter-spacing:-.005em;font-weight:300}
+.foot-cta{display:flex;flex-direction:column;align-items:flex-end;gap:8px;text-align:right}
+.foot-cta .label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-faint)}
+.foot-cta a.mail{
+  font-family:'Newsreader',serif;font-style:italic;font-size:32px;
+  color:var(--gold-soft);border-bottom:1px solid rgba(184,144,44,.4);
+  padding-bottom:2px;transition:border-color .2s;
+}
+.foot-cta a.mail:hover{border-bottom-color:var(--gold-soft)}
+.foot-cta a.mail .at{color:var(--cream-mute);font-style:normal}
+
+.foot-grid{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;
+  padding-bottom:48px;border-bottom:1px solid rgba(236,231,215,.18);
+}
+.foot-brand .mark-row{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.foot-brand .mark-row svg{width:28px;height:28px;color:var(--cream)}
+.foot-brand .wm{font-family:'Newsreader',serif;font-style:italic;font-size:21px;color:var(--cream)}
+.foot-brand p{font-size:14px;line-height:1.6;color:var(--cream-mute);max-width:36ch;margin-bottom:18px}
+.foot-brand .seal{
+  font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;
+  color:var(--cream-faint);text-transform:uppercase;
+  border-top:1px solid rgba(236,231,215,.16);padding-top:18px;line-height:1.85;
+}
+.foot h5{font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:18px;color:var(--cream);margin-bottom:18px}
+.foot ul{list-style:none}
+.foot ul li{margin-bottom:10px}
+.foot ul a{
+  font-size:14px;color:var(--cream-mute);transition:color .15s;
+  display:flex;justify-content:space-between;gap:18px;
+}
+.foot ul a:hover{color:var(--cream)}
+.foot ul a .ext{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--cream-faint);letter-spacing:.04em}
+
+.foot-bot{
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;
+  font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--cream-faint);padding-top:24px;
+}
+.foot-bot .gold-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold-soft);margin-right:8px;vertical-align:middle;opacity:.8}
+
+@media(max-width:980px){
+  .foot-mast{grid-template-columns:1fr;align-items:start}
+  .foot-cta{align-items:flex-start;text-align:left}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:36px}
+}
+@media(max-width:560px){
+  .foot-grid{grid-template-columns:1fr}
+}
+
+/* ---------- i18n ---------- */
+[data-lang]{display:none !important}
+body[data-active="en"] [data-lang="en"]{display:revert !important}
+body[data-active="zh"] [data-lang="zh"]{display:revert !important}
+
+body[data-active="zh"] .h1,
+body[data-active="zh"] .folio h2,
+body[data-active="zh"] .lede,
+body[data-active="zh"] .pr h4,
+body[data-active="zh"] .dim-name,
+body[data-active="zh"] .phase h3,
+body[data-active="zh"] .foot-title,
+body[data-active="zh"] .foot h5,
+body[data-active="zh"] .brand-name,
+body[data-active="zh"] .doctrine .pull,
+body[data-active="zh"] .figure-cap .ttl,
+body[data-active="zh"] .gauge .axis .label{
+  font-family:'Newsreader','Songti SC','Source Han Serif SC','STSongti',serif;
+}
+body[data-active="zh"] .lede,
+body[data-active="zh"] .doctrine p,
+body[data-active="zh"] .pr p,
+body[data-active="zh"] .dim-text,
+body[data-active="zh"] .phase p,
+body[data-active="zh"] .foot-brand p{
+  font-family:-apple-system,'PingFang SC','Hiragino Sans GB','Source Han Sans SC',sans-serif;
+}
+
+@media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+
+@media(prefers-color-scheme:dark){
+  :root{
+    --paper:#0E1118;--paper-2:#161A22;--paper-3:#1F242E;
+    --ink:#ECE7D7;--ink-2:#D4D0C2;--ink-mute:#9A9990;--ink-faint:#65645E;
+    --rule:rgba(236,231,215,.18);--rule-2:rgba(236,231,215,.08);
+    --gold:#C9A445;--gold-soft:#C9A445;
+  }
+  .mast{background:rgba(14,17,24,.92)}
+  .foot{background:#070A0F}
+  .panel,.principles{background:var(--paper-2)}
+  .figure{background:var(--paper)}
+}
+</style>
 </head>
-<body>
-    <!-- Geometric Background Canvas -->
-    <canvas id="geometricBg"></canvas>
+<body data-active="en">
 
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <div class="container nav-container">
-            <a href="#top" class="nav-logo">
-                <img src="images/logo.svg" alt="Tesseract Trading Logo" width="44" height="44">
-                <span class="nav-logo-text">Tesseract Trading</span>
-            </a>
-
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#about" data-lang="en">ABOUT</a><a href="#about" data-lang="zh" style="display: none;">关于</a></li>
-                <li><a href="#dimensions" data-lang="en">DIMENSIONS</a><a href="#dimensions" data-lang="zh" style="display: none;">维度</a></li>
-                <li><a href="#execution" data-lang="en">EXECUTION</a><a href="#execution" data-lang="zh" style="display: none;">执行</a></li>
-                <li><a href="#contact" data-lang="en">CONTACT</a><a href="#contact" data-lang="zh" style="display: none;">联系</a></li>
-                <li>
-                    <button class="lang-toggle" id="langToggle">EN / 中文</button>
-                </li>
-            </ul>
-        </div>
+<!-- ============== MAST ============== -->
+<header class="mast">
+  <div class="shell mast-inner">
+    <a href="#top" class="brand" aria-label="Tesseract Trading">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" stroke="currentColor" fill="none" stroke-width="2.6" stroke-linejoin="miter">
+          <!-- Official Tesseract logo · Form A · Schlegel diagram of the 4-cube · Brand Guide v2 -->
+          <rect x="10" y="10" width="44" height="44"/>
+          <rect x="22" y="22" width="20" height="20"/>
+          <line x1="10" y1="10" x2="22" y2="22"/>
+          <line x1="54" y1="10" x2="42" y2="22"/>
+          <line x1="10" y1="54" x2="22" y2="42"/>
+          <line x1="54" y1="54" x2="42" y2="42"/>
+        </svg>
+      </span>
+      <span>
+        <span class="brand-name" data-lang="en">Tesseract Trading</span>
+        <span class="brand-name" data-lang="zh">Tesseract 交易</span>
+        <span class="brand-tag">A division of The Alephain Guild</span>
+      </span>
+    </a>
+    <nav class="nav-list" aria-label="Primary">
+      <a href="#about"><span data-lang="en">House</span><span data-lang="zh">交易厅</span></a>
+      <a href="#dimensions"><span data-lang="en">Dimensions</span><span data-lang="zh">维度</span></a>
+      <a href="#execution"><span data-lang="en">Execution</span><span data-lang="zh">执行</span></a>
+      <a href="#filings"><span data-lang="en">Filings</span><span data-lang="zh">归档</span></a>
+      <a href="#contact"><span data-lang="en">Contact</span><span data-lang="zh">联系</span></a>
     </nav>
+    <div class="nav-actions">
+      <button class="lang" id="lang" aria-label="Switch language">
+        <span class="en on">EN</span> · <span class="zh">中</span>
+      </button>
+      <a href="#contact" class="cta-mast">
+        <span data-lang="en">Request brief</span><span data-lang="zh">索取简介</span>
+        <span class="arr">→</span>
+      </a>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="sheet" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="top">
-        <div class="hero-content">
-            <div class="hero-icon">
-                <img src="images/logo.svg" alt="Tesseract Trading" class="hero-logo">
-            </div>
-            <p class="hero-subtitle" data-lang="en">HIGH-DIMENSIONAL EXECUTION</p>
-            <p class="hero-subtitle" data-lang="zh" style="display: none;">高维度精准执行</p>
-            <h1 class="hero-title" data-lang="en">Trading Beyond<br>Three Dimensions</h1>
-            <h1 class="hero-title" data-lang="zh" style="display: none;">超越三维空间<br>的交易执行</h1>
-            <p class="hero-description" data-lang="en">
-                Like a tesseract projects 4D geometry into 3D space, we perceive and operate
-                in market dimensions invisible to conventional traders. Precision execution
-                through mathematical structure.
-            </p>
-            <p class="hero-description" data-lang="zh" style="display: none;">
-                如同超立方体将四维几何投影到三维空间，我们感知并运作于传统交易者无法察觉的市场维度。
-                通过数学结构实现精准执行。
-            </p>
-            <div class="hero-buttons">
-                <a href="#dimensions" class="btn btn-primary" data-lang="en">Enter Higher Dimensions</a>
-                <a href="#dimensions" class="btn btn-primary" data-lang="zh" style="display: none;">进入高维空间</a>
-                <a href="https://alephain.com" class="btn btn-secondary" data-lang="en">The Alephain Guild</a>
-                <a href="https://alephain.com" class="btn btn-secondary" data-lang="zh" style="display: none;">阿莱夫行会</a>
-            </div>
+<nav class="sheet" id="sheet" aria-hidden="true">
+  <a href="#about"><span data-lang="en">House</span><span data-lang="zh">交易厅</span><span class="num">§ I</span></a>
+  <a href="#dimensions"><span data-lang="en">Dimensions</span><span data-lang="zh">维度</span><span class="num">§ II</span></a>
+  <a href="#execution"><span data-lang="en">Execution</span><span data-lang="zh">执行</span><span class="num">§ III</span></a>
+  <a href="#filings"><span data-lang="en">Filings</span><span data-lang="zh">归档</span><span class="num">§ IV</span></a>
+  <a href="#contact"><span data-lang="en">Contact</span><span data-lang="zh">联系</span><span class="num">§ V</span></a>
+</nav>
+
+<!-- ============== TICKER ============== -->
+<div class="ticker">
+  <div class="shell ticker-inner">
+    <span class="it"><span class="pulse"></span><strong data-lang="en">LIVE</strong><strong data-lang="zh">实盘</strong></span>
+    <span class="it"><span data-lang="en">D¹·PX</span><span data-lang="zh">D¹·价</span><strong class="tnum">RESOLVING</strong><span class="up">+0.42σ</span></span>
+    <span class="it"><span data-lang="en">D²·LIQ</span><span data-lang="zh">D²·流动</span><strong class="tnum">DEEP</strong><span class="up">2.4×</span></span>
+    <span class="it"><span data-lang="en">D³·T</span><span data-lang="zh">D³·时</span><strong class="tnum">ALIGNED</strong><span class="up">3 / 4</span></span>
+    <span class="it"><span data-lang="en">D⁴·CORR</span><span data-lang="zh">D⁴·相关</span><strong class="tnum">REGIME B</strong><span class="dn">−0.18</span></span>
+    <span class="it"><span data-lang="en">23 channels · HKG · 22:00 UTC+8</span><span data-lang="zh">二十三通道 · 香港 · 22:00 UTC+8</span></span>
+  </div>
+</div>
+
+<!-- ============== HERO ============== -->
+<section class="shell hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">
+        <span data-lang="en">Volume I · Charter</span><span data-lang="zh">第一卷 · 总章程</span>
+        <span class="gold" data-lang="en">· filed 2026.05</span><span class="gold" data-lang="zh">· 2026.05 归档</span>
+      </div>
+
+      <h1 class="h1" data-lang="en">
+        Trading where<br>
+        the <span class="underline">geometry</span><br>
+        <em>resolves</em><span class="pt">.</span>
+      </h1>
+      <h1 class="h1" data-lang="zh">
+        在几何<br>
+        <span class="underline">显形</span>之处<br>
+        <em>交易</em><span class="pt">。</span>
+      </h1>
+
+      <p class="lede" data-lang="en">
+        Tesseract is the high-dimensional execution arm of <em>The Alephain Guild</em>. We do not seek edge in the price tape alone. A tesseract — the four-dimensional cube — projects its full structure into the three dimensions we can see, and from that projection we trade. <em>Price is one axis.</em> Liquidity, time and correlation are the other three.
+      </p>
+      <p class="lede" data-lang="zh">
+        Tesseract 是<em>阿莱夫行会</em>的高维度执行分部。我们不在单一价格走带上找超额。超立方体——那四维的方体——会把它完整的结构投影到我们可见的三维，我们便依此投影而行。<em>价格只是其中一轴。</em>流动性、时间、相关性是其余三轴。
+      </p>
+
+      <div class="cta-row">
+        <a href="#dimensions" class="btn btn-fill"><span data-lang="en">Read the atlas</span><span data-lang="zh">阅读图版</span><span class="arr">→</span></a>
+        <a href="#filings" class="btn btn-line"><span data-lang="en">Open filings</span><span data-lang="zh">查看归档</span></a>
+      </div>
+
+      <div class="hero-meta">
+        <div>
+          <div class="lab">House</div>
+          <div class="val" data-lang="en">Tesseract<small>execution arm</small></div>
+          <div class="val" data-lang="zh">Tesseract<small>交易执行分部</small></div>
         </div>
-        <div class="scroll-indicator">
-            <span data-lang="en">Unfold dimensions</span>
-            <span data-lang="zh" style="display: none;">展开维度</span>
-            <div class="scroll-arrow"></div>
+        <div>
+          <div class="lab">Parent</div>
+          <div class="val" data-lang="en">The Alephain Guild<small>est. 2024 · HKG</small></div>
+          <div class="val" data-lang="zh">阿莱夫行会<small>立会于 2024 · 香港</small></div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <h2 class="section-title" data-lang="en">The Tesseract</h2>
-            <h2 class="section-title" data-lang="zh" style="display: none;">超立方体</h2>
-
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="lead" data-lang="en">
-                        Tesseract Trading is the high-dimensional execution arm of The Alephain Guild,
-                        specializing in precision market operations across dimensions that conventional
-                        traders cannot perceive.
-                    </p>
-                    <p class="lead" data-lang="zh" style="display: none;">
-                        Tesseract Trading是阿莱夫行会的高维度执行部门，专注于在传统交易者无法感知的维度中进行精准市场操作。
-                    </p>
-                    <p data-lang="en">
-                        A tesseract is a four-dimensional hypercube — an object that exists beyond
-                        our three-dimensional perception. Just as a 3D cube casts a 2D shadow, a tesseract
-                        projects complex geometric patterns into lower dimensions. We operate in these
-                        higher market dimensions, executing with mathematical precision.
-                    </p>
-                    <p data-lang="zh" style="display: none;">
-                        超立方体是四维超立方体——一个存在于我们三维感知之外的物体。正如三维立方体投射出二维阴影，
-                        超立方体将复杂的几何图案投影到较低维度。我们在这些更高的市场维度中运作，以数学精度执行。
-                    </p>
-                </div>
-                <div class="about-visual">
-                    <div class="tesseract-visual">
-                        <div class="tesseract-inner"></div>
-                        <div class="tesseract-outer"></div>
-                    </div>
-                    <p class="visual-caption" data-lang="en">4D Hypercube Projection</p>
-                    <p class="visual-caption" data-lang="zh" style="display: none;">四维超立方体投影</p>
-                </div>
-            </div>
+        <div>
+          <div class="lab">Doctrine</div>
+          <div class="val" data-lang="en">Projectio per<br>Geometriam<small>project · then act</small></div>
+          <div class="val" data-lang="zh">Projectio per<br>Geometriam<small>先投影 · 后行动</small></div>
         </div>
-    </section>
-
-    <!-- Dimensions Section -->
-    <section class="section dimensions" id="dimensions">
-        <div class="container">
-            <h2 class="section-title" data-lang="en">Market Dimensions</h2>
-            <h2 class="section-title" data-lang="zh" style="display: none;">市场维度</h2>
-            <p class="section-subtitle" data-lang="en">Operating across multiple market structure layers</p>
-            <p class="section-subtitle" data-lang="zh" style="display: none;">跨越多重市场结构层运作</p>
-
-            <div class="dimensions-grid">
-                <div class="dimension-card" data-dimension="1">
-                    <div class="dimension-number">D¹</div>
-                    <h3 data-lang="en">Price Dimension</h3>
-                    <h3 data-lang="zh" style="display: none;">价格维度</h3>
-                    <p data-lang="en">
-                        The visible market surface — price movements, trends, and conventional
-                        technical patterns that all traders observe.
-                    </p>
-                    <p data-lang="zh" style="display: none;">
-                        可见的市场表面——所有交易者都能观察到的价格走势、趋势和传统技术形态。
-                    </p>
-                </div>
-
-                <div class="dimension-card" data-dimension="2">
-                    <div class="dimension-number">D²</div>
-                    <h3 data-lang="en">Volume Dimension</h3>
-                    <h3 data-lang="zh" style="display: none;">成交量维度</h3>
-                    <p data-lang="en">
-                        Market depth and liquidity structures — order flow dynamics, volume
-                        profiles, and participation patterns beneath the surface.
-                    </p>
-                    <p data-lang="zh" style="display: none;">
-                        市场深度和流动性结构——表面之下的订单流动态、成交量分布和参与模式。
-                    </p>
-                </div>
-
-                <div class="dimension-card" data-dimension="3">
-                    <div class="dimension-number">D³</div>
-                    <h3 data-lang="en">Time Dimension</h3>
-                    <h3 data-lang="zh" style="display: none;">时间维度</h3>
-                    <p data-lang="en">
-                        Multi-timeframe structural alignment — fractal patterns, regime
-                        transitions, and temporal market harmonics.
-                    </p>
-                    <p data-lang="zh" style="display: none;">
-                        多时间框架结构对齐——分形模式、状态转换和时间市场谐波。
-                    </p>
-                </div>
-
-                <div class="dimension-card" data-dimension="4">
-                    <div class="dimension-number">D⁴</div>
-                    <h3 data-lang="en">Correlation Dimension</h3>
-                    <h3 data-lang="zh" style="display: none;">相关性维度</h3>
-                    <p data-lang="en">
-                        Cross-asset interconnections — hidden correlations, regime-dependent
-                        relationships, and systemic risk structures.
-                    </p>
-                    <p data-lang="zh" style="display: none;">
-                        跨资产互联——隐藏的相关性、状态依赖关系和系统性风险结构。
-                    </p>
-                </div>
-
-                <div class="dimension-card highlight" data-dimension="n">
-                    <div class="dimension-number">Dⁿ</div>
-                    <h3 data-lang="en">Higher Dimensions</h3>
-                    <h3 data-lang="zh" style="display: none;">更高维度</h3>
-                    <p data-lang="en">
-                        The unseen market hyperspace — where geometric structures govern price
-                        behavior in ways invisible to lower-dimensional observers.
-                    </p>
-                    <p data-lang="zh" style="display: none;">
-                        不可见的市场超空间——几何结构以低维观察者无法察觉的方式支配价格行为。
-                    </p>
-                </div>
-            </div>
+        <div>
+          <div class="lab">Status</div>
+          <div class="val" data-lang="en">Active<small>23 channels</small></div>
+          <div class="val" data-lang="zh">运行中<small>23 条通道</small></div>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Execution Section -->
-    <section class="section execution" id="execution">
-        <div class="container">
-            <h2 class="section-title" data-lang="en">Precision Execution</h2>
-            <h2 class="section-title" data-lang="zh" style="display: none;">精准执行</h2>
-            <p class="section-subtitle" data-lang="en">Mathematical structure meets operational excellence</p>
-            <p class="section-subtitle" data-lang="zh" style="display: none;">数学结构与卓越运营的结合</p>
+    <!-- Hero instrument panel -->
+    <aside class="panel" aria-label="Live four-axis projection">
+      <div class="panel-head">
+        <span><strong>FIG · I</strong> · <span data-lang="en">FOUR-AXIS PROJECTION</span><span data-lang="zh">四轴投影</span></span>
+        <span class="live"><span data-lang="en">LIVE</span><span data-lang="zh">实盘</span></span>
+      </div>
 
-            <div class="execution-grid">
-                <div class="execution-card">
-                    <div class="execution-icon">◇</div>
-                    <h3 data-lang="en">Geometric Precision</h3>
-                    <h3 data-lang="zh" style="display: none;">几何精度</h3>
-                    <p data-lang="en">
-                        Entry and exit points calculated through multi-dimensional market
-                        geometry, not simple price levels.
-                    </p>
-                    <p data-lang="zh" style="display: none;">
-                        通过多维市场几何计算入场和出场点，而非简单的价格水平。
-                    </p>
-                </div>
-
-                <div class="execution-card">
-                    <div class="execution-icon">⬡</div>
-                    <h3 data-lang="en">Structural Arbitrage</h3>
-                    <h3 data-lang="zh" style="display: none;">结构套利</h3>
-                    <p data-lang="en">
-                        Exploiting geometric inconsistencies across market dimensions
-                        that resolve through time.
-                    </p>
-                    <p data-lang="zh" style="display: none;">
-                        利用跨市场维度的几何不一致性，这些不一致性会随时间解决。
-                    </p>
-                </div>
-
-                <div class="execution-card">
-                    <div class="execution-icon">⎔</div>
-                    <h3 data-lang="en">Hypercube Navigation</h3>
-                    <h3 data-lang="zh" style="display: none;">超立方体导航</h3>
-                    <p data-lang="en">
-                        Dynamic position management through rotating market projections
-                        and dimensional transitions.
-                    </p>
-                    <p data-lang="zh" style="display: none;">
-                        通过旋转市场投影和维度转换进行动态仓位管理。
-                    </p>
-                </div>
-
-                <div class="execution-card">
-                    <div class="execution-icon">◈</div>
-                    <h3 data-lang="en">Dimensional Hedging</h3>
-                    <h3 data-lang="zh" style="display: none;">维度对冲</h3>
-                    <p data-lang="en">
-                        Risk neutralization across market dimensions, not just
-                        conventional directional exposure.
-                    </p>
-                    <p data-lang="zh" style="display: none;">
-                        跨市场维度的风险中和，而非仅仅是传统的方向性敞口。
-                    </p>
-                </div>
-            </div>
-
-            <div class="execution-quote">
-                <blockquote>
-                    <p data-lang="en">"In higher dimensions, what appears as market chaos reveals itself as geometric order."</p>
-                    <p data-lang="zh" style="display: none;">"在更高维度中，表面上的市场混沌展现为几何秩序。"</p>
-                </blockquote>
-            </div>
+      <div class="gauges">
+        <div class="gauge">
+          <div class="axis"><span class="label">D¹ · Price</span><span class="id">D·001</span></div>
+          <div class="read tnum">+0.42<span style="font-size:14px;color:var(--ink-mute);font-style:italic"> σ</span><span class="delta pos">▲ resolving</span></div>
+          <div class="meta" data-lang="en">surface · last 64m</div>
+          <div class="meta" data-lang="zh">表面 · 近 64 分钟</div>
+          <svg viewBox="0 0 200 48" preserveAspectRatio="none">
+            <line x1="0" y1="38" x2="200" y2="38" stroke="currentColor" stroke-width=".6" opacity=".25"/>
+            <polyline points="0,32 14,30 28,33 42,28 56,29 70,24 84,26 98,20 112,22 126,17 140,18 154,12 168,14 182,8 200,10" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="200" cy="10" r="2.2" fill="var(--gold-soft)"/>
+          </svg>
         </div>
-    </section>
 
-    <!-- Contact / Footer Section -->
-    <footer class="footer" id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="images/logo.svg" alt="Tesseract Trading" class="footer-logo">
-                    <h3>Tesseract Trading</h3>
-                    <p data-lang="en">High-Dimensional Execution</p>
-                    <p data-lang="zh" style="display: none;">高维度精准执行</p>
-                    <p class="footer-tagline" data-lang="en">A division of The Alephain Guild</p>
-                    <p class="footer-tagline" data-lang="zh" style="display: none;">阿莱夫行会旗下</p>
-                </div>
-
-                <div class="footer-links">
-                    <h4 data-lang="en">Navigation</h4>
-                    <h4 data-lang="zh" style="display: none;">导航</h4>
-                    <ul>
-                        <li><a href="#about" data-lang="en">About</a><a href="#about" data-lang="zh" style="display: none;">关于</a></li>
-                        <li><a href="#dimensions" data-lang="en">Dimensions</a><a href="#dimensions" data-lang="zh" style="display: none;">维度</a></li>
-                        <li><a href="#execution" data-lang="en">Execution</a><a href="#execution" data-lang="zh" style="display: none;">执行</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-guild">
-                    <h4 data-lang="en">The Alephain Guild</h4>
-                    <h4 data-lang="zh" style="display: none;">阿莱夫行会</h4>
-                    <ul>
-                        <li><a href="https://alephain.com" data-lang="en">Main Site</a><a href="https://alephain.com" data-lang="zh" style="display: none;">主站</a></li>
-                        <li><a href="https://alchymia.alephain.com" data-lang="en">Alchymia Labs</a><a href="https://alchymia.alephain.com" data-lang="zh" style="display: none;">Alchymia Labs</a></li>
-                        <li><a href="https://alephain.com#ecosystem" data-lang="en">Ecosystem</a><a href="https://alephain.com#ecosystem" data-lang="zh" style="display: none;">生态</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p data-lang="en">&copy; 2025 Tesseract Trading Ltd. All rights reserved.</p>
-                <p data-lang="zh" style="display: none;">&copy; 2025 Tesseract Trading Ltd. 保留所有权利。</p>
-                <p class="brand-adherence" data-lang="en">This website strictly adheres to The Alephain Guild Brand Guide</p>
-                <p class="brand-adherence" data-lang="zh" style="display: none;">本网站严格遵循阿莱夫行会品牌指南</p>
-            </div>
-
-            <a href="#top" class="back-to-top" data-lang="en">↑ BACK TO TOP</a>
-            <a href="#top" class="back-to-top" data-lang="zh" style="display: none;">↑ 返回顶部</a>
+        <div class="gauge">
+          <div class="axis"><span class="label">D² · Liquidity</span><span class="id">L·004</span></div>
+          <div class="read tnum">2.4<span style="font-size:14px;color:var(--ink-mute);font-style:italic"> ×</span><span class="delta pos">▲ deep</span></div>
+          <div class="meta" data-lang="en">L1 + L2 · all venues</div>
+          <div class="meta" data-lang="zh">L1+L2 · 全场所</div>
+          <svg viewBox="0 0 200 48" preserveAspectRatio="none">
+            <line x1="100" y1="6" x2="100" y2="42" stroke="currentColor" stroke-width=".5" opacity=".2"/>
+            <g fill="currentColor" opacity=".55">
+              <rect x="20" y="14" width="76" height="4"/>
+              <rect x="38" y="22" width="58" height="4"/>
+              <rect x="48" y="30" width="48" height="4"/>
+            </g>
+            <g fill="currentColor" opacity=".85">
+              <rect x="104" y="14" width="62" height="4"/>
+              <rect x="104" y="22" width="78" height="4"/>
+              <rect x="104" y="30" width="44" height="4"/>
+            </g>
+          </svg>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <div class="gauge">
+          <div class="axis"><span class="label">D³ · Time</span><span class="id">T·002</span></div>
+          <div class="read tnum">3<span style="font-size:14px;color:var(--ink-mute);font-style:italic"> / 4</span><span class="delta pos">▲ aligned</span></div>
+          <div class="meta" data-lang="en">5m · 1h · 4h · 1d</div>
+          <div class="meta" data-lang="zh">5分 · 1时 · 4时 · 日</div>
+          <svg viewBox="0 0 200 48" preserveAspectRatio="none">
+            <g stroke="currentColor" stroke-width="1.2" fill="none">
+              <line x1="10"  y1="36" x2="190" y2="36" opacity=".7"/>
+              <line x1="10"  y1="26" x2="190" y2="26" opacity=".55"/>
+              <line x1="10"  y1="16" x2="190" y2="16" opacity=".4"/>
+              <line x1="10"  y1="6"  x2="160" y2="6" opacity=".2" stroke-dasharray="2 3"/>
+            </g>
+            <g fill="var(--gold-soft)">
+              <circle cx="160" cy="36" r="2"/>
+              <circle cx="140" cy="26" r="2"/>
+              <circle cx="120" cy="16" r="2"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="gauge">
+          <div class="axis"><span class="label">D⁴ · Correlation</span><span class="id">C·011</span></div>
+          <div class="read tnum">−0.18<span style="font-size:14px;color:var(--ink-mute);font-style:italic"> ρ</span><span class="delta neg">▼ regime B</span></div>
+          <div class="meta" data-lang="en">cross-asset · 24h</div>
+          <div class="meta" data-lang="zh">跨资产 · 24 时</div>
+          <svg viewBox="0 0 200 48" preserveAspectRatio="none">
+            <g>
+              <rect x="10"  y="6"  width="22" height="36" fill="currentColor" opacity=".8"/>
+              <rect x="34"  y="6"  width="22" height="36" fill="currentColor" opacity=".55"/>
+              <rect x="58"  y="6"  width="22" height="36" fill="currentColor" opacity=".35"/>
+              <rect x="82"  y="6"  width="22" height="36" fill="currentColor" opacity=".22"/>
+              <rect x="106" y="6"  width="22" height="36" fill="currentColor" opacity=".4"/>
+              <rect x="130" y="6"  width="22" height="36" fill="currentColor" opacity=".6"/>
+              <rect x="154" y="6"  width="22" height="36" fill="var(--gold-soft)" opacity=".85"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="figure">
+        <div class="figure-svg">
+          <svg viewBox="-150 -150 300 300" aria-hidden="true">
+            <g class="tess-rot">
+              <rect x="-110" y="-110" width="220" height="220" fill="none" stroke="currentColor" stroke-width="1.3"/>
+              <rect x="-50" y="-50" width="100" height="100" fill="none" stroke="currentColor" stroke-width="1.1"/>
+              <g stroke="currentColor" stroke-width=".9" opacity=".7" fill="none">
+                <line x1="-110" y1="-110" x2="-50" y2="-50"/>
+                <line x1="110"  y1="-110" x2="50"  y2="-50"/>
+                <line x1="-110" y1="110"  x2="-50" y2="50"/>
+                <line x1="110"  y1="110"  x2="50"  y2="50"/>
+              </g>
+              <g fill="currentColor">
+                <circle cx="-110" cy="-110" r="2.4"/><circle cx="110"  cy="-110" r="2.4"/>
+                <circle cx="-110" cy="110"  r="2.4"/><circle cx="110"  cy="110"  r="2.4"/>
+                <circle cx="-50"  cy="-50"  r="1.8"/><circle cx="50"   cy="-50"  r="1.8"/>
+                <circle cx="-50"  cy="50"   r="1.8"/><circle cx="50"   cy="50"   r="1.8"/>
+              </g>
+              <circle cx="0" cy="0" r="3.6" fill="var(--gold-soft)" stroke="currentColor" stroke-width=".8"/>
+              <g stroke="var(--gold-soft)" stroke-width=".7" opacity=".75">
+                <line x1="0" y1="0" x2="-50" y2="-50"/>
+                <line x1="0" y1="0" x2="50"  y2="-50"/>
+                <line x1="0" y1="0" x2="-50" y2="50"/>
+                <line x1="0" y1="0" x2="50"  y2="50"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="figure-cap">
+          <span class="cap" data-lang="en">PL · 001 · Schlegel projection</span>
+          <span class="cap" data-lang="zh">PL · 001 · Schlegel 投影</span>
+          <div class="ttl" data-lang="en">The tesseract, in shadow.</div>
+          <div class="ttl" data-lang="zh">超立方体 · 投影于此。</div>
+          <div class="desc" data-lang="en">A four-cube projects an outer cube and an inner cube, joined edge to edge. The α-point at centre is where the four axes resolve.</div>
+          <div class="desc" data-lang="zh">四维方体投出一外一内两个三维方体，棱棱相连。中央 α 点，正是四轴显形之所。</div>
+        </div>
+      </div>
+
+      <div class="panel-foot">
+        <span class="seal">de Tesseracto</span>
+        <span>SCALE 1 : 1</span>
+        <span>26.05.02 · 22:00 UTC+8</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============== § I HOUSE ============== -->
+<section class="section" id="about">
+  <div class="shell">
+    <div class="folio">
+      <div class="folio-num">I<small data-lang="en">Section</small><small data-lang="zh">章</small></div>
+      <div>
+        <h2 data-lang="en">A trading house, in <em>four axes</em>.</h2>
+        <h2 data-lang="zh">一座<em>四轴</em>交易厅。</h2>
+      </div>
+      <p class="strap right" data-lang="en">No screens of screens. No predictions issued for show. The house exists to act on structure that the price tape alone cannot describe.</p>
+      <p class="strap right" data-lang="zh">没有套娃式的屏幕，也不为表演而发预测。本厅之设，正是为了对那些价格走带本身无从描述的结构作出反应。</p>
+    </div>
+
+    <div class="doctrine">
+      <div>
+        <p class="pull" data-lang="en">A tesseract is not the figure on the page. It is what the page can only ever shadow.</p>
+        <p class="pull" data-lang="zh">超立方体并非纸上的那张图——它是那张图所能做到的，至多不过是它的影子。</p>
+        <p data-lang="en">
+          The tesseract — a four-dimensional cube — appears on paper as one cube nested inside another, joined edge to edge. That picture is not the object itself; it is the shadow it casts when it crosses our three-dimensional sight. The Aleph the Guild is named for behaves the same way: a structure too large to be seen, only ever observed in projection. Trading, for us, is the act of <em>reading those projections</em> and taking position before the projection collapses.
+        </p>
+        <p data-lang="zh">
+          超立方体——那四维的方体——画在纸上呈现为一个方体嵌于另一个方体之中，棱棱相连。那张图并不是它本身，它只是它穿越我们三维视野时投下的阴影。行会得名所自的"阿莱夫"亦是如此：它过于宏大，无法被直接看见，只能在投影中被察觉。所谓交易，于我们而言，便是<em>阅读这些投影</em>，并在投影崩塌之前就位的行为。
+        </p>
+      </div>
+      <div>
+        <span class="marg" data-lang="en">// From the trading-floor log</span>
+        <span class="marg" data-lang="zh">// 交易厅日志摘录</span>
+        <p data-lang="en">
+          Where Alchymia Labs distils the alpha, Tesseract executes against it. We are not researchers; we are the hand. Every channel we operate carries the signed filing of the apparatus that bore it, and every fill is reconciled — slippage, queue priority, venue latency — back to the projection that authorised the trade.
+        </p>
+        <p data-lang="zh">
+          Alchymia 实验室提炼阿尔法，Tesseract 则据之执行。我们不是研究者，是出手的那只手。我们所运行的每条通道，都附带产出它的器物的签署归档；每一笔成交——滑点、队列优先级、场所延迟——都须回溯归因至授权此笔的投影。
+        </p>
+        <p data-lang="en" style="font-style:italic;color:var(--ink-mute)">
+          We are not a fund. We are not a signal vendor. We are the disciplined hand the Guild keeps under glass — quiet most of the day, exact when the projection resolves.
+        </p>
+        <p data-lang="zh" style="font-style:italic;color:var(--ink-mute)">
+          我们不是基金。我们不是信号供应商。我们是行会留于玻璃匣中的那只受约束的手——多数时候静默，惟当投影显形之时，方才精确。
+        </p>
+      </div>
+    </div>
+
+    <!-- principles -->
+    <div class="principles">
+      <article class="pr">
+        <div class="seq"><span>PRINCIPLE · I</span><span class="glyph">◇</span></div>
+        <h4 data-lang="en">Project before acting.</h4>
+        <h4 data-lang="zh">先投影，后行动。</h4>
+        <p data-lang="en">A position is only taken once the four-axis projection agrees. If three axes carry the trade and the fourth refuses, we wait — or we do not trade.</p>
+        <p data-lang="zh">惟当四轴投影一致认同时，方才建仓。若三轴支持而第四轴拒绝，则等待——或干脆不交易。</p>
+      </article>
+      <article class="pr">
+        <div class="seq"><span>PRINCIPLE · II</span><span class="glyph">⬡</span></div>
+        <h4 data-lang="en">Geometry over rumour.</h4>
+        <h4 data-lang="zh">几何，胜于传闻。</h4>
+        <p data-lang="en">Price moves on news, but news is rarely the cause. The cause is the geometry that already permitted the move. We trade the cause.</p>
+        <p data-lang="zh">价格因新闻而动，而新闻鲜少是原因——原因是那早已默许此动作的几何。我们交易原因。</p>
+      </article>
+      <article class="pr">
+        <div class="seq"><span>PRINCIPLE · III</span><span class="glyph">⌖</span></div>
+        <h4 data-lang="en">Reconcile every fill.</h4>
+        <h4 data-lang="zh">每笔成交，皆须归档。</h4>
+        <p data-lang="en">An execution that cannot be traced back to the projection that authorised it is not an execution — it is a story. Stories cost capital.</p>
+        <p data-lang="zh">无法回溯至授权它的那道投影的成交，不是执行——是故事。故事会消耗资本。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== § II DIMENSIONS ============== -->
+<section class="section tinted" id="dimensions">
+  <div class="shell">
+    <div class="folio">
+      <div class="folio-num">II<small data-lang="en">Section</small><small data-lang="zh">章</small></div>
+      <div>
+        <h2 data-lang="en">Four <em>axes</em>, one projection.</h2>
+        <h2 data-lang="zh">四<em>轴</em>，同一投影。</h2>
+      </div>
+      <p class="strap right" data-lang="en">Each axis carries its own folio, its own filing code, its own signed instruments. None of them moves the house alone.</p>
+      <p class="strap right" data-lang="zh">每一轴皆有自己的卷宗、归档号、署名工具。无一轴可独自驱动本厅。</p>
+    </div>
+
+    <div class="dim-table">
+      <article class="dim-row">
+        <div class="dim-axis">D<sup>1</sup></div>
+        <div>
+          <div class="dim-name" data-lang="en">Price<small>D · 0xx · the visible surface</small></div>
+          <div class="dim-name" data-lang="zh">价格<small>D · 0xx · 可见表面</small></div>
+        </div>
+        <p class="dim-text" data-lang="en">The tape — last trade, mid, best bid and ask. We read it, but we do not act on it alone. Price is the projection's brightest face; reading only the brightest face is how three-dimensional traders are reliably surprised.</p>
+        <p class="dim-text" data-lang="zh">即走带——最新成交、中价、最优买卖。我们读它，但不单据其行动。价格是投影中最明亮的一面；只读最亮面，正是三维交易者频频被市场反袭的原因。</p>
+        <div class="dim-spec">
+          <div class="row"><span class="k">channels</span><span>06 / 23</span></div>
+          <div class="row"><span class="k">latency</span><span>&lt; 80 µs</span></div>
+          <div class="row"><span class="k">read freq.</span><span>tick</span></div>
+        </div>
+        <div class="dim-fig" aria-hidden="true">
+          <svg viewBox="0 0 88 64">
+            <line x1="6" y1="58" x2="84" y2="58" stroke="currentColor" stroke-width="1"/>
+            <line x1="6" y1="6"  x2="6"  y2="58" stroke="currentColor" stroke-width="1"/>
+            <polyline points="10,48 22,42 32,46 42,32 52,38 62,24 72,30 82,18" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
+        </div>
+      </article>
+
+      <article class="dim-row">
+        <div class="dim-axis">D<sup>2</sup></div>
+        <div>
+          <div class="dim-name" data-lang="en">Liquidity<small>L · 0xx · what holds price up</small></div>
+          <div class="dim-name" data-lang="zh">流动性<small>L · 0xx · 价格之承载</small></div>
+        </div>
+        <p class="dim-text" data-lang="en">Order-book depth, queue priority, venue dispersion, hidden size. Liquidity is what determines whether a price level is a wall or a curtain — and we never trade against the curtain we cannot see through.</p>
+        <p class="dim-text" data-lang="zh">订单簿深度、队列优先级、场所分布、隐藏单。流动性决定一个价位是墙还是帘——我们绝不与那道我们看不透的帘对赌。</p>
+        <div class="dim-spec">
+          <div class="row"><span class="k">venues</span><span>14 / 14</span></div>
+          <div class="row"><span class="k">depth</span><span>L1 + L2</span></div>
+          <div class="row"><span class="k">refresh</span><span>10 ms</span></div>
+        </div>
+        <div class="dim-fig" aria-hidden="true">
+          <svg viewBox="0 0 88 64">
+            <line x1="44" y1="6" x2="44" y2="58" stroke="currentColor" stroke-width=".5" opacity=".4"/>
+            <g fill="currentColor" opacity=".75">
+              <rect x="10" y="14" width="32" height="4"/>
+              <rect x="20" y="22" width="22" height="4"/>
+              <rect x="28" y="30" width="14" height="4"/>
+            </g>
+            <g fill="currentColor" opacity=".55">
+              <rect x="46" y="38" width="20" height="4"/>
+              <rect x="46" y="46" width="32" height="4"/>
+              <rect x="46" y="54" width="14" height="4"/>
+            </g>
+          </svg>
+        </div>
+      </article>
+
+      <article class="dim-row">
+        <div class="dim-axis">D<sup>3</sup></div>
+        <div>
+          <div class="dim-name" data-lang="en">Time<small>T · 0xx · alignment of frames</small></div>
+          <div class="dim-name" data-lang="zh">时间<small>T · 0xx · 时框之对齐</small></div>
+        </div>
+        <p class="dim-text" data-lang="en">A signal at one timeframe is a coincidence; a signal that survives across four is a structure. We require alignment across at least three of {5m · 1h · 4h · 1d} before any channel commits capital.</p>
+        <p class="dim-text" data-lang="zh">单一时框上的信号是巧合，能在四时框上存活的信号才是结构。任一通道在动用资本之前，必须于 {5分 · 1时 · 4时 · 日} 中至少三框对齐。</p>
+        <div class="dim-spec">
+          <div class="row"><span class="k">frames</span><span>5m · 1h · 4h · 1d</span></div>
+          <div class="row"><span class="k">min align</span><span>3 / 4</span></div>
+          <div class="row"><span class="k">decay</span><span>regime-aware</span></div>
+        </div>
+        <div class="dim-fig" aria-hidden="true">
+          <svg viewBox="0 0 88 64">
+            <g stroke="currentColor" stroke-width="1" fill="none">
+              <line x1="6" y1="48" x2="82" y2="48" opacity=".75"/>
+              <line x1="6" y1="36" x2="82" y2="36" opacity=".55"/>
+              <line x1="6" y1="24" x2="82" y2="24" opacity=".4"/>
+              <line x1="6" y1="12" x2="62" y2="12" opacity=".22" stroke-dasharray="2 3"/>
+            </g>
+            <g fill="currentColor"><circle cx="62" cy="48" r="2"/><circle cx="54" cy="36" r="2"/><circle cx="46" cy="24" r="2"/></g>
+          </svg>
+        </div>
+      </article>
+
+      <article class="dim-row">
+        <div class="dim-axis">D<sup>4</sup></div>
+        <div>
+          <div class="dim-name" data-lang="en">Correlation<small>C · 0xx · the unseen joins</small></div>
+          <div class="dim-name" data-lang="zh">相关性<small>C · 0xx · 不可见的接合</small></div>
+        </div>
+        <p class="dim-text" data-lang="en">Cross-asset, cross-venue, regime-conditional. A position that looks lonely on the price chart is rarely lonely in the geometry — it is held by three other axes the chart does not draw.</p>
+        <p class="dim-text" data-lang="zh">跨资产、跨场所、随状态而变。一笔在价图上看似孤立的仓位，几乎从不在几何中孤立——它由那张图所未绘的另外三轴所支撑。</p>
+        <div class="dim-spec">
+          <div class="row"><span class="k">universe</span><span>240 instruments</span></div>
+          <div class="row"><span class="k">regimes</span><span>A · B · C</span></div>
+          <div class="row"><span class="k">window</span><span>24 h rolling</span></div>
+        </div>
+        <div class="dim-fig" aria-hidden="true">
+          <svg viewBox="0 0 88 64">
+            <g>
+              <rect x="6"  y="8"  width="10" height="48" fill="currentColor" opacity=".75"/>
+              <rect x="18" y="8"  width="10" height="48" fill="currentColor" opacity=".5"/>
+              <rect x="30" y="8"  width="10" height="48" fill="currentColor" opacity=".32"/>
+              <rect x="42" y="8"  width="10" height="48" fill="currentColor" opacity=".22"/>
+              <rect x="54" y="8"  width="10" height="48" fill="currentColor" opacity=".4"/>
+              <rect x="66" y="8"  width="10" height="48" fill="currentColor" opacity=".62"/>
+            </g>
+          </svg>
+        </div>
+      </article>
+
+      <article class="dim-row dim-n">
+        <div class="dim-axis">D<sup>n</sup></div>
+        <div>
+          <div class="dim-name" data-lang="en">Higher dimensions<small>D · ∞ · reserved</small></div>
+          <div class="dim-name" data-lang="zh">更高维度<small>D · ∞ · 保留</small></div>
+        </div>
+        <p class="dim-text" data-lang="en">Reserved. The Guild's research apparatus identifies axes beyond the four; their disclosure is governed by the Charter and is not part of this folio. The figure on the page is finite; the object behind it is not.</p>
+        <p class="dim-text" data-lang="zh">保留。行会研究器物已识别出超越四轴的诸轴；其披露由《总章程》约束，不在本卷之内。纸上之图有尽，纸后之物无尽。</p>
+        <div class="dim-spec">
+          <div class="row"><span class="k">status</span><span>under seal</span></div>
+          <div class="row"><span class="k">access</span><span>charter only</span></div>
+          <div class="row"><span class="k">filing</span><span>—</span></div>
+        </div>
+        <div class="dim-fig" aria-hidden="true">
+          <svg viewBox="0 0 88 64">
+            <rect x="14" y="10" width="60" height="44" fill="none" stroke="currentColor" stroke-width="1"/>
+            <rect x="26" y="20" width="36" height="24" fill="none" stroke="currentColor" stroke-width="1"/>
+            <line x1="14" y1="10" x2="26" y2="20" stroke="currentColor" stroke-width=".7"/>
+            <line x1="74" y1="10" x2="62" y2="20" stroke="currentColor" stroke-width=".7"/>
+            <line x1="14" y1="54" x2="26" y2="44" stroke="currentColor" stroke-width=".7"/>
+            <line x1="74" y1="54" x2="62" y2="44" stroke="currentColor" stroke-width=".7"/>
+            <circle cx="44" cy="32" r="2.4" fill="currentColor"/>
+          </svg>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== § III EXECUTION ============== -->
+<section class="section dark" id="execution">
+  <div class="shell">
+    <div class="folio">
+      <div class="folio-num">III<small data-lang="en">Section</small><small data-lang="zh">章</small></div>
+      <div>
+        <h2 data-lang="en">Execution, as a <em>cycle</em>.</h2>
+        <h2 data-lang="zh">执行，作为一个<em>循环</em>。</h2>
+      </div>
+      <p class="strap right" data-lang="en">Four phases. Each one signed, each one reconciled. No phase begins without the prior phase's filing.</p>
+      <p class="strap right" data-lang="zh">四个阶段。每一阶段皆有署名，皆有归档；无前一阶段之归档，则不入下一阶段。</p>
+    </div>
+
+    <div class="cycle-wrap">
+      <div class="cycle">
+        <article class="phase">
+          <div class="seq"><span>I · OBSERVE</span><span class="roman">i.</span></div>
+          <h3 data-lang="en">Observe</h3>
+          <h3 data-lang="zh">观察</h3>
+          <div class="lat">— specere —</div>
+          <p data-lang="en">Twenty-three channels read the four axes at native frequency. Nothing is yet a signal — only readings, signed by the apparatus that took them.</p>
+          <p data-lang="zh">二十三条通道以原生频率读取四轴。此时尚无所谓信号——惟有读数，由读取它们的器物署名。</p>
+          <ol>
+            <li data-lang="en">Tick &amp; quote bus</li><li data-lang="zh">逐笔与报价总线</li>
+            <li data-lang="en">L2 depth · venue-wise</li><li data-lang="zh">L2 深度 · 按场所</li>
+            <li data-lang="en">Time-frame harmoniser</li><li data-lang="zh">时框谐振</li>
+            <li data-lang="en">Correlation matrix · 24h</li><li data-lang="zh">相关矩阵 · 24时</li>
+          </ol>
+        </article>
+
+        <article class="phase">
+          <div class="seq"><span>II · PROJECT</span><span class="roman">ii.</span></div>
+          <h3 data-lang="en">Project</h3>
+          <h3 data-lang="zh">投影</h3>
+          <div class="lat">— proicere —</div>
+          <p data-lang="en">The four readings are projected onto a single plate. Where the four axes resolve to a single point — the α-point — a candidate trade is born.</p>
+          <p data-lang="zh">四道读数被投影到同一图版之上。四轴显形为同一点——即 α 点——之处，候选交易遂生。</p>
+          <ol>
+            <li data-lang="en">Schlegel reduction</li><li data-lang="zh">Schlegel 约简</li>
+            <li data-lang="en">α-point detection</li><li data-lang="zh">α 点识别</li>
+            <li data-lang="en">Confidence by axis</li><li data-lang="zh">逐轴置信度</li>
+            <li data-lang="en">Three-of-four gate</li><li data-lang="zh">四中三闸口</li>
+          </ol>
+        </article>
+
+        <article class="phase">
+          <div class="seq"><span>III · COMMIT</span><span class="roman">iii.</span></div>
+          <h3 data-lang="en">Commit</h3>
+          <h3 data-lang="zh">委托</h3>
+          <div class="lat">— committere —</div>
+          <p data-lang="en">Capital is committed only after the projection's filing is signed. Sizing follows liquidity, not conviction. Conviction without depth is loss waiting for a quote.</p>
+          <p data-lang="zh">惟当投影归档署名之后，资本方得动用。建仓依流动性，而非信念——无深度的信念，不过是一笔等待报价的损失。</p>
+          <ol>
+            <li data-lang="en">Liquidity-bound sizing</li><li data-lang="zh">以流动性为限的建仓</li>
+            <li data-lang="en">Smart routing · 14 venues</li><li data-lang="zh">智能路由 · 14 场所</li>
+            <li data-lang="en">Slippage budget</li><li data-lang="zh">滑点预算</li>
+            <li data-lang="en">Correlation hedge</li><li data-lang="zh">相关对冲</li>
+          </ol>
+        </article>
+
+        <article class="phase">
+          <div class="seq"><span>IV · RECONCILE</span><span class="roman">iv.</span></div>
+          <h3 data-lang="en">Reconcile</h3>
+          <h3 data-lang="zh">归档</h3>
+          <div class="lat">— reconciliare —</div>
+          <p data-lang="en">Every fill is traced back to the projection that authorised it. Drift between authorising plate and realised fill is itself an instrument — read on the next cycle.</p>
+          <p data-lang="zh">每一笔成交回溯至授权它的那道投影。授权图版与实际成交之间的偏差，本身亦为一种器物——在下一循环中加以阅读。</p>
+          <ol>
+            <li data-lang="en">Per-fill attribution</li><li data-lang="zh">逐笔归因</li>
+            <li data-lang="en">Drift &amp; cost log</li><li data-lang="zh">偏差与成本日志</li>
+            <li data-lang="en">Channel scorecard</li><li data-lang="zh">通道记分</li>
+            <li data-lang="en">Filing → next cycle</li><li data-lang="zh">归档 · 入下一循环</li>
+          </ol>
+        </article>
+      </div>
+    </div>
+
+    <!-- ledger -->
+    <div class="ledger" id="filings">
+      <div class="ledger-cap">
+        <span data-lang="en">House Ledger · public summary · Q1 / 2026</span>
+        <span data-lang="zh">本厅账册 · 公开摘要 · 2026 第一季</span>
+        <span>FILING · TESS · 2026 · Q1</span>
+      </div>
+      <div class="ledger-grid">
+        <div class="ledger-cell">
+          <div class="lab" data-lang="en">Channels live</div>
+          <div class="lab" data-lang="zh">在运通道</div>
+          <div class="val tnum">23<em>/ 23</em></div>
+          <div class="unit" data-lang="en">all axes covered</div>
+          <div class="unit" data-lang="zh">四轴全覆盖</div>
+        </div>
+        <div class="ledger-cell">
+          <div class="lab" data-lang="en">Reconciled fills</div>
+          <div class="lab" data-lang="zh">归档成交</div>
+          <div class="val tnum">100<em>%</em></div>
+          <div class="unit" data-lang="en">per Charter §III.3</div>
+          <div class="unit" data-lang="zh">依《总章程》§III.3</div>
+        </div>
+        <div class="ledger-cell">
+          <div class="lab" data-lang="en">Mean axis-alignment</div>
+          <div class="lab" data-lang="zh">平均轴对齐</div>
+          <div class="val tnum">3.4<em>/ 4</em></div>
+          <div class="unit" data-lang="en">on committed trades</div>
+          <div class="unit" data-lang="zh">已委托交易</div>
+        </div>
+        <div class="ledger-cell">
+          <div class="lab" data-lang="en">Median latency</div>
+          <div class="lab" data-lang="zh">中位延迟</div>
+          <div class="val tnum">78<em>µs</em></div>
+          <div class="unit" data-lang="en">tick → commit</div>
+          <div class="unit" data-lang="zh">逐笔 · 至委托</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER / CONTACT ============== -->
+<footer class="foot" id="contact">
+  <div class="shell">
+    <div class="foot-mast">
+      <h2 class="foot-title">
+        <span data-lang="en"><em>Quiet</em> most of the day,<br>exact <em>when the projection<br>resolves</em>.</span>
+        <span data-lang="zh">多数时候<em>静默</em>，<br>惟当<em>投影显形</em>之时，<br>方才精确。</span>
+        <span class="small" data-lang="en">— from the trading-floor log, vol. III</span>
+        <span class="small" data-lang="zh">— 交易厅日志摘录，第三卷</span>
+      </h2>
+      <div class="foot-cta">
+        <span class="label" data-lang="en">Brief, partnership, audit</span>
+        <span class="label" data-lang="zh">简介 / 合作 / 审计</span>
+        <a class="mail" href="mailto:hand@tesseract.alephain.com">hand<span class="at">@</span>tesseract.alephain.com</a>
+      </div>
+    </div>
+
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="mark-row">
+          <svg viewBox="0 0 64 64" aria-hidden="true" stroke="currentColor" fill="none" stroke-width="2.6" stroke-linejoin="miter">
+            <!-- Official Tesseract logo · Form A · Schlegel diagram of the 4-cube · Brand Guide v2 -->
+            <rect x="10" y="10" width="44" height="44"/>
+            <rect x="22" y="22" width="20" height="20"/>
+            <line x1="10" y1="10" x2="22" y2="22"/>
+            <line x1="54" y1="10" x2="42" y2="22"/>
+            <line x1="10" y1="54" x2="22" y2="42"/>
+            <line x1="54" y1="54" x2="42" y2="42"/>
+          </svg>
+          <span class="wm" data-lang="en">Tesseract Trading</span>
+          <span class="wm" data-lang="zh">Tesseract 交易</span>
+        </div>
+        <p data-lang="en">High-dimensional execution arm of The Alephain Guild. Hong Kong &amp; Singapore. The hand kept under glass.</p>
+        <p data-lang="zh">阿莱夫行会高维度执行分部。香港及新加坡。玻璃匣中的那只手。</p>
+        <div class="seal">
+          TESS · TRD · LTD<br>
+          HKG · 2024 — present<br>
+          Charter · Vol. I · public
+        </div>
+      </div>
+
+      <div>
+        <h5 data-lang="en">House</h5>
+        <h5 data-lang="zh">交易厅</h5>
+        <ul>
+          <li><a href="#about"><span data-lang="en">Charter</span><span data-lang="zh">总章程</span><span class="ext">§ I</span></a></li>
+          <li><a href="#dimensions"><span data-lang="en">Dimensions</span><span data-lang="zh">维度</span><span class="ext">§ II</span></a></li>
+          <li><a href="#execution"><span data-lang="en">Execution</span><span data-lang="zh">执行</span><span class="ext">§ III</span></a></li>
+          <li><a href="#filings"><span data-lang="en">Filings</span><span data-lang="zh">归档</span><span class="ext">§ IV</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 data-lang="en">Guild</h5>
+        <h5 data-lang="zh">行会</h5>
+        <ul>
+          <li><a href="https://alephain.com"><span data-lang="en">The Alephain Guild</span><span data-lang="zh">阿莱夫行会</span><span class="ext">↗</span></a></li>
+          <li><a href="https://alchymia.alephain.com"><span data-lang="en">Alchymia Labs</span><span data-lang="zh">Alchymia 实验室</span><span class="ext">↗</span></a></li>
+          <li><a href="https://alephain.com#ecosystem"><span data-lang="en">Ecosystem</span><span data-lang="zh">生态</span><span class="ext">↗</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 data-lang="en">Office</h5>
+        <h5 data-lang="zh">办公室</h5>
+        <ul>
+          <li><a href="mailto:hand@tesseract.alephain.com"><span data-lang="en">Brief</span><span data-lang="zh">索取简介</span><span class="ext">@</span></a></li>
+          <li><a href="mailto:audit@tesseract.alephain.com"><span data-lang="en">Audit</span><span data-lang="zh">审计</span><span class="ext">@</span></a></li>
+          <li><a href="#"><span data-lang="en">Press kit</span><span data-lang="zh">媒体材料</span><span class="ext">PDF</span></a></li>
+          <li><a href="#"><span data-lang="en">Disclosures</span><span data-lang="zh">披露</span><span class="ext">→</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bot">
+      <span><span class="gold-dot"></span><span data-lang="en">© 2024–2026 Tesseract Trading Ltd. All rights reserved.</span><span data-lang="zh">© 2024–2026 Tesseract Trading Ltd. 保留所有权利。</span></span>
+      <span data-lang="en">Adheres to The Alephain Guild Brand Guide · v2.0</span>
+      <span data-lang="zh">遵循阿莱夫行会品牌指南 · v2.0</span>
+      <span class="tnum">26.05.02 · HKG</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// language toggle
+(function(){
+  var lang = localStorage.getItem('tess.lang') || 'en';
+  document.body.dataset.active = lang;
+  function paint(){
+    document.querySelectorAll('.lang .en, .lang .zh').forEach(function(s){
+      s.classList.toggle('on', s.classList.contains(document.body.dataset.active));
+    });
+  }
+  paint();
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){
+      var next = document.body.dataset.active === 'en' ? 'zh' : 'en';
+      document.body.dataset.active = next;
+      localStorage.setItem('tess.lang', next);
+      paint();
+    });
+  });
+})();
+
+// burger
+(function(){
+  var b = document.getElementById('burger');
+  var s = document.getElementById('sheet');
+  if(!b) return;
+  b.addEventListener('click', function(){
+    var open = b.getAttribute('aria-expanded') === 'true';
+    b.setAttribute('aria-expanded', String(!open));
+    s.classList.toggle('open', !open);
+    s.setAttribute('aria-hidden', String(open));
+  });
+  s.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      b.setAttribute('aria-expanded','false');
+      s.classList.remove('open');
+      s.setAttribute('aria-hidden','true');
+    });
+  });
+})();
+</script>
 </body>
 </html>

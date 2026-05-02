@@ -1,22 +1,18 @@
-# Tesseract Trading - GitHub Pages Configuration
-# High-Dimensional Execution
+# Tesseract Trading — GitHub Pages Configuration
+# High-Dimensional Execution · Projectio per Geometriam
 
-# Site settings
 title: Tesseract Trading
-description: High-Dimensional Execution - Multi-dimensional trading strategies and optimal execution paths
-url: "https://tesseract-trading-ltd.github.io"
+description: A four-axis trading house — execution arm of The Alephain Guild. Projectio per Geometriam.
+url: "https://tesseract.alephain.com"
 baseurl: ""
 
-# Brand
 brand:
   name: "Tesseract Trading"
-  tagline: "High-Dimensional Execution"
+  tagline: "Projectio per Geometriam"
 
-# Build settings
 markdown: kramdown
 highlighter: rouge
 
-# Exclude from build
 exclude:
   - README.md
   - LICENSE
@@ -26,17 +22,14 @@ exclude:
   - node_modules
   - vendor
 
-# Include specific files
 include:
   - _headers
   - _redirects
 
-# Plugins
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# Default front matter
 defaults:
   - scope:
       path: ""
@@ -44,18 +37,15 @@ defaults:
       layout: default
       lang: en
 
-# Compression
 sass:
   style: compressed
 
-# SEO
 author: Tesseract Trading
 twitter:
-  card: summary
+  card: summary_large_image
 social:
   name: Tesseract Trading
   links:
     - https://github.com/tesseract-trading-ltd
 
-# Analytics (optional)
-# google_analytics: UA-XXXXXXXX-X
+google_analytics: G-JRQ4FRY7LZ
