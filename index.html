@@ -910,7 +910,7 @@ body[data-active="zh"] .foot-brand p{
       <div class="panel-foot">
         <span class="seal">de Tesseracto</span>
         <span>SCALE 1 : 1</span>
-        <span>26.05.02 · 22:00 UTC+8</span>
+        <span class="tnum" data-dateline="full">— · — UTC+8</span>
       </div>
     </aside>
   </div>
@@ -1329,7 +1329,7 @@ body[data-active="zh"] .foot-brand p{
       <span><span class="gold-dot"></span><span data-lang="en">© 2024–2026 Tesseract Trading Ltd. All rights reserved.</span><span data-lang="zh">© 2024–2026 Tesseract Trading Ltd. 保留所有权利。</span></span>
       <span data-lang="en">Adheres to The Alephain Guild Brand Guide · v2.0</span>
       <span data-lang="zh">遵循阿莱夫行会品牌指南 · v2.0</span>
-      <span class="tnum">26.05.02 · HKG</span>
+      <span class="tnum" data-dateline="short">— · HKG</span>
     </div>
   </div>
 </footer>
@@ -1384,6 +1384,33 @@ body[data-active="zh"] .foot-brand p{
       s.setAttribute('aria-hidden','true');
     });
   });
+})();
+
+// dateline — Hong Kong wall clock, refreshed each minute.
+// `data-dateline="full"`  -> "YY.MM.DD · HH:MM UTC+8"
+// `data-dateline="short"` -> "YY.MM.DD · HKG"
+(function(){
+  var nodes = document.querySelectorAll('[data-dateline]');
+  if (!nodes.length) return;
+  function render(){
+    var fmt = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Asia/Hong_Kong',
+      year: '2-digit', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', hour12: false
+    });
+    var p = {};
+    fmt.formatToParts(new Date()).forEach(function(x){ p[x.type] = x.value; });
+    var ymd  = p.year + '.' + p.month + '.' + p.day;
+    var time = p.hour + ':' + p.minute;
+    nodes.forEach(function(el){
+      var mode = el.getAttribute('data-dateline');
+      el.textContent = mode === 'full'
+        ? ymd + ' · ' + time + ' UTC+8'
+        : ymd + ' · HKG';
+    });
+  }
+  render();
+  setInterval(render, 60000);
 })();
 </script>
 </body>
