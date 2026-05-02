@@ -1337,20 +1337,31 @@ body[data-active="zh"] .foot-brand p{
 <script>
 // language toggle
 (function(){
-  var lang = localStorage.getItem('tess.lang') || 'en';
-  document.body.dataset.active = lang;
+  // Resolve initial lang: explicit choice > browser preference > 'en'.
+  var stored = localStorage.getItem('tess.lang');
+  var initial = stored || (
+    navigator.language && navigator.language.toLowerCase().indexOf('zh') === 0
+      ? 'zh'
+      : 'en'
+  );
+  function applyLang(lang){
+    document.body.dataset.active = lang;
+    // Mirror to <html lang> so screen readers, search engines and
+    // CSS hyphenation/font-language all see the change.
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
+    paint();
+  }
   function paint(){
     document.querySelectorAll('.lang .en, .lang .zh').forEach(function(s){
       s.classList.toggle('on', s.classList.contains(document.body.dataset.active));
     });
   }
-  paint();
+  applyLang(initial);
   document.querySelectorAll('.lang').forEach(function(b){
     b.addEventListener('click', function(){
       var next = document.body.dataset.active === 'en' ? 'zh' : 'en';
-      document.body.dataset.active = next;
       localStorage.setItem('tess.lang', next);
-      paint();
+      applyLang(next);
     });
   });
 })();
