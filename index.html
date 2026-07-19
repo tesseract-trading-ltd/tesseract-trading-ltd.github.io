@@ -176,6 +176,8 @@ img,svg{display:block;max-width:100%}
   .cta-mast{display:none}
   .burger{display:inline-flex;align-items:center;justify-content:center}
   .sheet{display:flex}
+  /* nav-list + cta-mast display:none 会从 grid 移除,导致 nav-actions 落到中间 1fr 列; margin-left:auto 强制回到右侧 */
+  .nav-actions{margin-left:auto}
 }
 
 /* ---------- ticker bar ---------- */
@@ -195,6 +197,27 @@ img,svg{display:block;max-width:100%}
 .ticker .it strong{color:var(--cream);font-weight:500}
 .ticker .it .up{color:#9FBE7B}
 .ticker .it .dn{color:#C97964}
+.mast-strip{
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px 22px;
+  padding:8px 0 10px;border-top:1px solid var(--rule-2);
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);
+}
+.mast-strip .mast-eco{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.mast-strip .mast-cta{color:var(--ink-mute);text-decoration:none;border-bottom:1px dotted var(--rule);padding-bottom:1px;transition:color .18s ease,border-color .18s ease}
+.mast-strip .mast-cta:hover{color:var(--gold);border-bottom-color:var(--gold)}
+/* Dark mode: --ink-faint (#65645E) is too low-contrast on dark bg; step up to brighter vars */
+@media(prefers-color-scheme:dark){
+  .mast-strip{color:var(--ink-mute)}
+  .mast-strip .mast-cta{color:var(--ink-2)}
+}
+/* Chinese language: relax letter-spacing (.16em 对汉字过散,识别度反降) */
+body[data-active="zh"] .mast-strip,
+body[data-active="zh"] .mast-strip .mast-cta{letter-spacing:.04em}
+@media(max-width:640px){
+  .mast-strip .mast-brand-note{display:none}
+  .mast-strip{justify-content:flex-start;padding:8px 0 10px}
+}
 
 /* ---------- hero ---------- */
 .hero{
@@ -711,6 +734,13 @@ body[data-active="zh"] .foot-brand p{
       </a>
       <button class="burger" id="burger" aria-expanded="false" aria-controls="sheet" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
+  </div>
+  <div class="shell mast-strip">
+    <span class="mast-brand-note"><span data-lang="en">Part of </span><span data-lang="zh">隶属 </span><a class="mast-cta" href="https://alephain.com" title="The Alephain Guild"><span data-lang="en">The Alephain Guild ecosystem ↗</span><span data-lang="zh">The Alephain Guild 生态 ↗</span></a></span>
+    <span class="mast-eco">
+      <a class="mast-cta" href="mailto:contact@alephain.com?subject=ARX%20private%20beta%20%C2%B7%20invite%20request" title="Request invite"><span data-lang="en">ARX · private beta ↗</span><span data-lang="zh">ARX · 内测中 ↗</span></a>
+      <a class="mast-cta" href="https://github.com/alchymia-labs/custos" title="View on GitHub"><span data-lang="en">custos · open source ↗</span><span data-lang="zh">custos · 开源 ↗</span></a>
+    </span>
   </div>
 </header>
 
