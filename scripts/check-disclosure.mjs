@@ -14,8 +14,9 @@
  * Adapted on 2026-09-24 from the Guild site's gate and calibrated against THIS
  * site's pages before it was switched on (the lesson from the Guild site: a word
  * list copied across sites misfires). Public names here are the Guild, Tesseract,
- * ARX and custos (the custos repository is public; linking it is fine). "Crucible" is matched only as the capitalised proper noun,
- * because the lower-case English word is ordinary prose.
+ * ARX and custos (the custos repository is public; linking it is fine).
+ * "Crucible" is matched only as the capitalised proper noun, because the
+ * lower-case English word is ordinary prose.
  *
  * This file is excluded from publication via _config.yml — it necessarily
  * contains every term it forbids.
