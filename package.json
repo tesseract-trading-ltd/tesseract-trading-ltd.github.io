@@ -1,0 +1,14 @@
+{
+  "name": "tesseract-trading-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Tesseract Trading public site. Tooling only — the site itself is static and needs no build step.",
+  "scripts": {
+    "verify": "npm run check:disclosure",
+    "check:disclosure": "node scripts/check-disclosure.mjs --self-test && node scripts/check-disclosure.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

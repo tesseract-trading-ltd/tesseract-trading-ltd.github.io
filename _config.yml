@@ -13,7 +13,11 @@ brand:
 markdown: kramdown
 highlighter: rouge
 
+# scripts/ and the npm manifest are tooling, not content. The disclosure gate
+# must never ship: it spells out every term it forbids.
 exclude:
+  - scripts/
+  - package.json
   - README.md
   - LICENSE
   - CNAME
